@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:title" content="PromeQL 使用技巧">
+    <meta name="description" content="不断更新中">
+  <meta property="og:description" content="不断更新中">
+    <meta property="og:type" content="blog">
+  <title>PromeQL 使用技巧</title>
+  <!-- Favicon -->
+    <link rel="shortcut icon" href="🗿">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+  <link rel="stylesheet" type="text/css" href="css/notablog.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <style>
+    :root {
+      font-size: 18px;
+    }
+
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+    <a href="index.html">
+      <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
+    </a>
+                                            <span class="Navbar__Delim">&centerdot;</span>
+    <a href="about.html">
+      <div class="Navbar__Btn"><span>🎃</span> <span>About</span></div>
+    </a>
+                          </nav>
+  <header class="Header">
+          <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+        <h1 class="Header__Title">PromeQL 使用技巧</h1>
+            <div class="DateTagBar">
+                <span class="DateTagBar__Item DateTagBar__Date">Posted on Thu, Jul 30, 2020</span>
+                          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
+            <a href="tag/prometheus.html">prometheus</a>
+          </span>
+                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+            <a href="tag/best-practice.html">best-practice</a>
+          </span>
+                  </div>
+          </header>
+      <article id="https://www.notion.so/b53f95763463471595cfa3b9090a3d98" class="PageRoot"><h2 id="https://www.notion.so/b69dbbe93a33442dbe957cd43abe1eb1" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/b69dbbe93a33442dbe957cd43abe1eb1"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">使用 container_memory_working_set_bytes 监控内存</span></span></h2><div id="https://www.notion.so/1787ffdcd4f64801adf7c65d10362cfc" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/6f36bd88ad6949ebb1b485979710f67e" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd8be639d-8b29-44a7-9ba5-3fe8f0d4e8c9%2F2020-05-27-11-13-28.png?width=1720&amp;table=block&amp;id=6f36bd88-ad69-49eb-b1b4-85979710f67e"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd8be639d-8b29-44a7-9ba5-3fe8f0d4e8c9%2F2020-05-27-11-13-28.png?width=1720&amp;table=block&amp;id=6f36bd88-ad69-49eb-b1b4-85979710f67e" style="width:100%"/></a><figcaption><span class="SemanticStringArray"><span class="SemanticString">一图胜千言</span></span></figcaption></figure></div><div id="https://www.notion.so/d114710d31ae44419da7fd53fb0e521c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">如图所示，我们可以很清楚得看出来 `container_memory_usage_bytes` 并不能实际表示内存的工作大小（因为包含了缓存部分），所以不作为 `OOMKiller` 的判断依据。所以在绘图和告警中，使用 `container_memory_working_set_bytes` 更精确。</span></span></p></div><div id="https://www.notion.so/dd761eeacd694c9db1b9f373e07b36aa" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/f4fca5d73cc246958fedbd2a214c14e5" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/f4fca5d73cc246958fedbd2a214c14e5"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">在查询中加入 kubernetes labels</span></span></h2><div id="https://www.notion.so/567af5bdbebe4b74a4de47d0e1c804c0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h3 id="https://www.notion.so/6776c059177e4f8b86564f801e37044e" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/6776c059177e4f8b86564f801e37044e"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">普通查询</span></span></h3><pre id="https://www.notion.so/da634cf86ae1438989c92f154316a111" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>kube_pod_container_status_restarts_total<span class="token punctuation">{</span>job<span class="token operator">=</span><span class="token string">"kube-state-metrics"</span>, <span class="token assign-left variable">namespace</span><span class="token operator">=</span>~<span class="token string">"abc-.*"</span>, <span class="token assign-left variable">container</span><span class="token operator">=</span>~<span class="token string">".*-abc-.*"</span><span class="token punctuation">}</span></span></span></span></code></pre><div id="https://www.notion.so/1ffedadb0b734f08ab391f88b75d0b10" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">此时，告警中是拿不到对应的 pod labels 的，需要做的就是把 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">kube_pod_labels</code></span><span class="SemanticString"> 加到里面</span></span></p></div><div id="https://www.notion.so/3013fb8212fa49f4a5b49153d6dd8364" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><pre id="https://www.notion.so/b6f51e222ba14b5e9d8d06fd8238c580" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>kube_pod_container_status_restarts_total<span class="token punctuation">{</span>job<span class="token operator">=</span><span class="token string">"kube-state-metrics"</span>, <span class="token assign-left variable">namespace</span><span class="token operator">=</span>~<span class="token string">"abc-.*"</span>, <span class="token assign-left variable">container</span><span class="token operator">=</span>~<span class="token string">".*-abc-.*"</span><span class="token punctuation">}</span> * on <span class="token punctuation">(</span>namespace, pod<span class="token punctuation">)</span> group_right kube_pod_labels</span></span></span></code></pre><div id="https://www.notion.so/301b59514204464ba0fae675c996eeef" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">需要注意的是，这里虽然看起来容器，但是要保证前面 filter 能够定位到唯一的 container，不然就会报错：</span></span></p></div><pre id="https://www.notion.so/7b242f65e86c4a9eb9affa3d62b6cac5" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>many-to-many matching not allowed: matching labels must be unique on one side</span></span></span></code></pre><div id="https://www.notion.so/8431df1e224242cc813b3d54ad2e9fdf" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>  <footer class="Footer">
+        <div>&copy; 布鲁斯🐟的奇思乱想 2019</div>
+        <div>&centerdot;</div>
+        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+            rel="noopener noreferrer">Notablog</a>.
+        </div>
+    </footer>
+</body>
+
+</html>
