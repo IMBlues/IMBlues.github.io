@@ -102,18 +102,12 @@
 
 <span class="token keyword">class</span> <span class="token class-name">TestUtils</span><span class="token punctuation">:</span>
     <span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize</span><span class="token punctuation">(</span>
-        <span class="token string">"input, expected, input"</span><span class="token punctuation">,</span>
+        <span class="token string">"input, expected"</span><span class="token punctuation">,</span>
         <span class="token punctuation">[</span>
             <span class="token comment"># 正常情况</span>
-            <span class="token punctuation">(</span>
-                <span class="token string">"abc"</span><span class="token punctuation">,</span>
-                <span class="token string">"xyz"</span>
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token string">"xyz"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 						<span class="token comment"># 异常情况，当然也可以多拆分一个测试项</span>
-            <span class="token punctuation">(</span>
-                <span class="token string">"abc"</span><span class="token punctuation">,</span>
-                ValueError
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> ValueError<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span>
     <span class="token keyword">def</span> <span class="token function">test_some_content</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token builtin">input</span><span class="token punctuation">,</span> expected<span class="token punctuation">,</span> make_fake_resp<span class="token punctuation">)</span><span class="token punctuation">:</span>
