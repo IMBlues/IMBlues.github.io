@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WV23EXEF9X');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:title" content="让 DRF Views 支持依赖注入">
+    <meta name="description" content="老瓶装新酒">
+  <meta property="og:description" content="老瓶装新酒">
+    <meta property="og:type" content="blog">
+  <title>让 DRF Views 支持依赖注入</title>
+  <!-- Favicon -->
+    <link rel="shortcut icon" href="🗿">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+  <link rel="stylesheet" type="text/css" href="css/notablog.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <style>
+    :root {
+      font-size: 18px;
+    }
+
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+    <a href="index.html">
+      <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
+    </a>
+                                                                            <span class="Navbar__Delim">&centerdot;</span>
+    <a href="about.html">
+      <div class="Navbar__Btn"><span>🎃</span> <span>关于我</span></div>
+    </a>
+                                          </nav>
+  <header class="Header">
+          <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+        <div class="Header__Icon"><span>👴</span></div>
+        <h1 class="Header__Title">让 DRF Views 支持依赖注入</h1>
+            <div class="DateTagBar">
+                <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, May 24, 2021</span>
+                          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/python.html">python</a>
+          </span>
+                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--gray">
+            <a href="tag/django.html">django</a>
+          </span>
+                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--blue">
+            <a href="tag/Dependency injection.html">Dependency injection</a>
+          </span>
+                  </div>
+          </header>
+      <article id="https://www.notion.so/6c08f2d20db84cc2a66444a61cc21bc1" class="PageRoot"><h2 id="https://www.notion.so/4208ceb89fce471286dc1a2243e93f09" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/4208ceb89fce471286dc1a2243e93f09"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">起因</span></span></h2><div id="https://www.notion.so/6fe33aa3ffaf454ab383ef119a91ae2d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Django 和 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.django-rest-framework.org/">Django REST framework</a></span><span class="SemanticString"> 是 Python 开发者常用的框架组合，通常来说，一个典型的 DRF 式 API 可能长这个样子：</span></span></p></div><pre id="https://www.notion.so/10cd76c1dd224e53a5f9d98ddf5a2996" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>generics <span class="token keyword">import</span> ListAPIView
+
+
+<span class="token keyword">class</span> <span class="token class-name">ProfileViewSet</span><span class="token punctuation">(</span>ListAPIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        serializer <span class="token operator">=</span> LoginSerializer<span class="token punctuation">(</span>data<span class="token operator">=</span>request<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+        serializer<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span>raise_exception<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        validated_data <span class="token operator">=</span> serializer<span class="token punctuation">.</span>validated_data
+
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span>data<span class="token operator">=</span>ProfileSerializer<span class="token punctuation">(</span>results<span class="token punctuation">,</span> many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/11677bcc16d040b08255dd8ad5df1cc2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/329e5d8a45e94e3c8428e26a508c2132" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这样写在逻辑上是简单的，可以让开发者对用户请求处理有一个清晰的脉络，但同时也会带来问题：</span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Serializer</code></span><span class="SemanticString"> 的逻辑和主逻辑混杂，使单元测试构造困难。</span></span></p></div><div id="https://www.notion.so/854c37cf282c4187a4695bec0bb4c966" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">同时，输入输出的代码在多个 API 中是有一定程度重复的， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">D.R.Y</code></span><span class="SemanticString"> 重度患者无法接受。</span></span></p></div><div id="https://www.notion.so/9dc3cc4a3e924bf893eae77c7717d66f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/9ceaf63f0e40496ea3c55c32ed5f7b46" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/9ceaf63f0e40496ea3c55c32ed5f7b46"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">启发</span></span></h2><div id="https://www.notion.so/8f4afeaa7e114ed98f9e00735353903a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">新贵框架 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://fastapi.tiangolo.com/">FastAPI</a></span><span class="SemanticString"> 的 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://fastapi.tiangolo.com/tutorial/dependencies/#what-is-dependency-injection">依赖注入特性</a></span><span class="SemanticString"> 就能够很好的解决以上两点：</span></span></p></div><pre id="https://www.notion.so/f17710fd068e43c7938d3b02747cc9de" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> Depends<span class="token punctuation">,</span> FastAPI
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>commons<span class="token punctuation">:</span> <span class="token builtin">dict</span> <span class="token operator">=</span> Depends<span class="token punctuation">(</span>common_parameters<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> commons</span></span></span></code></pre><div id="https://www.notion.so/37f33f7fd91d444083dbd7bedac55ff2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/60cea1664233480b89b3ae401a6d5569" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">然而，现实中的工程中切换框架往往是成本高昂的，仅仅为了依赖注入而切换框架显得有些小题大做。所以，如果能在 Django &amp; DRF 中实现类似依赖注入的功能，会较大程度提高 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">views</code></span><span class="SemanticString"> 的可读性并降低 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://en.wikipedia.org/wiki/Test-driven_development">TDD </a></span><span class="SemanticString">的门槛，间接提高代码质量。</span></span></p></div><div id="https://www.notion.so/abdb4eaff3504c1b975f181c1ff85341" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/c3dbd8bcae2942908631aefeefdcf883" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">同时我们需要满足几个条件：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/2e0367fbff22419d81aa886c0c5faa06" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">能够兼容当前的 ViewSet 类</span></span></li><li id="https://www.notion.so/a238feeb1cb3406387a13c991c35d363" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">能够复用 Serializer</span></span></li><li id="https://www.notion.so/fb02627559f44acca3db8ff62963ec88" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">（可选）能够复用 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">drf-yasg</code></span></span></li></ul><div id="https://www.notion.so/702526cbfc064b3da9004d31de4def9c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/1822f931d7cf4444bff77a5bda576ead" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">综上，我写了一个 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://gist.github.com/IMBlues/e36e792159729f429f9abf656ba24d10">简单的文件</a></span><span class="SemanticString"> ，你可以将它 Copy 到你的 DRF 项目中就可以改造原来的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">ViewSet</code></span><span class="SemanticString"> </span></span></p></div><div id="https://www.notion.so/79f0038f0e0b4ecc9130895e9f06199c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">（当前需求是比较简单的，封装成 SDK 然后安装依赖的成本反而高于直接复制粘贴，</span><span class="SemanticString"><del class="SemanticString__Fragment SemanticString__Fragment--Strike">这样大家可以一起偷懒</del></span><span class="SemanticString">）</span></span></p></div><div id="https://www.notion.so/02176504d81a409c8178aa9f19549032" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/3f7970021ea04d3dac12d4cdbab256d7" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/3f7970021ea04d3dac12d4cdbab256d7"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">最后的效果：</span></span></h2><div id="https://www.notion.so/e5269c33464940e29f728cba5da47d89" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/4394fcba2a4545cea90021b3a2dee5a1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">原来的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">ViewSet</code></span><span class="SemanticString"> （包含 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">drf-yasg</code></span><span class="SemanticString"> 的 schema 生成）</span></span></p></div><pre id="https://www.notion.so/8e322ecdd66546ef936561a474a012d0" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">class</span> <span class="token class-name">ProfileViewSet</span><span class="token punctuation">(</span>ListAPIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token decorator annotation punctuation">@swagger_auto_schema</span><span class="token punctuation">(</span>
+        request_body<span class="token operator">=</span>LoginSerializer<span class="token punctuation">,</span>
+        responses<span class="token operator">=</span><span class="token punctuation">{</span>status<span class="token punctuation">.</span>HTTP_200_OK<span class="token punctuation">:</span> ProfileSerializer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        serializer <span class="token operator">=</span> LoginSerializer<span class="token punctuation">(</span>data<span class="token operator">=</span>request<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+        serializer<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span>raise_exception<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        validated_data <span class="token operator">=</span> serializer<span class="token punctuation">.</span>validated_data
+
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span>data<span class="token operator">=</span>ProfileSerializer<span class="token punctuation">(</span>results<span class="token punctuation">,</span> many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/d20457eef39f4c1eb1215d41d4c00006" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/1567fa59982246019742e9789be92499" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">改造之后的效果：</span></span></p></div><pre id="https://www.notion.so/2813360dd7b84d3aa6c2b1bb4287f7a0" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">from</span> some_path<span class="token punctuation">.</span>inject <span class="token keyword">import</span> serializer_inject
+
+
+<span class="token keyword">class</span> <span class="token class-name">ProfileViewSet</span><span class="token punctuation">(</span>ListAPIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token decorator annotation punctuation">@serializer_inject</span><span class="token punctuation">(</span>
+        in_cls<span class="token operator">=</span>LoginSerializer<span class="token punctuation">,</span>
+        out_cls<span class="token operator">=</span>ProfileSerializer
+    <span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> validated_data<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 原来的逻辑部分</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token keyword">return</span> results</span></span></span></code></pre><div id="https://www.notion.so/89e3d1c6f7cd4634b2d84ecbbb0b1d38" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">（更多的使用例子也可以通过</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://gist.github.com/IMBlues/e36e792159729f429f9abf656ba24d10#gistcomment-3754830">我的评论</a></span><span class="SemanticString">来查看）</span></span></p></div><div id="https://www.notion.so/94c0764208ef446ca16d08c03ee0d5f0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/393f5da364d44b5f900ab1efaf5d539c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这样的改造我们得到了一些好处：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/8c0fa9ca048d4a278f2a8157438cda6d" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">仅需要简单改造原来的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">ViewSet</code></span><span class="SemanticString"> （ </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">serializer.validated_data</code></span><span class="SemanticString"> → </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">validated_data</code></span><span class="SemanticString"> ）</span></span></li><li id="https://www.notion.so/185f65bb2b2f47d0825fb2c06ae14a6b" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">完全继承原来的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Serializer</code></span><span class="SemanticString"> </span></span></li><li id="https://www.notion.so/199e2811ad254f97a504824d636e13fb" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">完整支持 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">drf-yasg</code></span><span class="SemanticString"> </span></span></li></ul><div id="https://www.notion.so/d617d8300796498faacba5ba54c14346" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/be61aae127754713b7d165e3ebde76d9" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">当然仍旧还有不完美的地方：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/5f53b6d54ada4ff0aac881fd8a2e7071" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">仅是语法糖层面的修改，无法去除 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">request</code></span><span class="SemanticString"> 依赖，单元测试的门槛降低了，但是并未完全去除（或可通过 mock injector 实现）</span></span></li><li id="https://www.notion.so/1139615de5e549a092f407398efbbfc0" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">对于返回值使用了 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">context</code></span><span class="SemanticString"> 的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Serializer</code></span><span class="SemanticString"> 需要通过 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">inject.ResponseParams</code></span><span class="SemanticString"> 类来包装一次，显得不那么纯粹</span></span></li></ul><div id="https://www.notion.so/cdf04f245db6477ba61dbecf4e31e3cc" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/385d24dbfbc24cc3bebe58816e42ccbb" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><del class="SemanticString__Fragment SemanticString__Fragment--Strike">有空再慢慢改（咕咕🐦）</del></span></span></p></div><div id="https://www.notion.so/bbf956b707994f66bc22f153c6fa53e8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+  <div>
+    <!-- utterances - Github issue comment -->
+    <script src="https://utteranc.es/client.js"
+	repo="IMBlues/IMBlues.github.io"
+	issue-term="pathname"
+	label="blog-comment"
+	theme="github-light"
+	crossorigin="anonymous"
+	async>
+    </script>
+  </div>
+
+  <footer class="Footer">
+        <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+        <div>&centerdot;</div>
+        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+            rel="noopener noreferrer">Notablog</a>.
+        </div>
+  </footer>
+</body>
+
+</html>
