@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-WV23EXEF9X');
@@ -47,30 +47,33 @@
     <a href="index.html">
       <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
     </a>
+    <a href="tag/tech.html">
+      <div class="Navbar__Btn">♯<span>TECH</span></div>
+    </a>
                                                                             <span class="Navbar__Delim">&centerdot;</span>
     <a href="about.html">
-      <div class="Navbar__Btn"><span>🎃</span> <span>关于我</span></div>
+      <div class="Navbar__Btn"> <span>关于我</span></div>
     </a>
                                           </nav>
   <header class="Header">
-          <div class="Header__Spacer Header__Spacer--NoCover">
+        <div class="Header__Spacer Header__Spacer--NoCover">
     </div>
         <div class="Header__Icon"><span>❓</span></div>
         <h1 class="Header__Title">你看不懂的 Python 写法</h1>
-            <div class="DateTagBar">
-                <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, May 10, 2021</span>
-                          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/python.html">python</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/fun.html">fun</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/tech.html">tech</a>
-          </span>
-                  </div>
-          </header>
-      <article id="https://www.notion.so/77be334675f04aceb149e9e08e1393cc" class="PageRoot"><div id="https://www.notion.so/2737ed099eac43f9ac2a758c2e46adc5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">近来在网上冲浪时看到了一个奇怪的 Python 语句：</span></span></p></div><pre id="https://www.notion.so/41425c68b32043f9b7b058d24c62c961" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>0xfor x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <div class="DateTagBar">
+            <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, May 10, 2021</span>
+                  <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/python.html">python</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/fun.html">fun</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/tech.html">tech</a>
+      </span>
+          </div>
+      </header>
+  <article id="https://www.notion.so/77be334675f04aceb149e9e08e1393cc" class="PageRoot"><div id="https://www.notion.so/2737ed099eac43f9ac2a758c2e46adc5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">近来在网上冲浪时看到了一个奇怪的 Python 语句：</span></span></p></div><pre id="https://www.notion.so/41425c68b32043f9b7b058d24c62c961" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>0xfor x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 <span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span></span></span></span></code></pre><div id="https://www.notion.so/bbd4d344fcaa483db21203db39809cc7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">有那么一瞬间，对自己多年的 Python 语法产生了怀疑， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">0xfor</code></span><span class="SemanticString"> 是一个什么新的循环关键字？</span></span></p></div><div id="https://www.notion.so/34af826e5be842b7b3b3c6f1be4f3d7f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">经过一番探究，发现一个奇怪的 Python 语法世界。</span></span></p></div><div id="https://www.notion.so/5bed7b23eaa140038c920b5ffdfdf5fd" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/8eef250dde0d4051a15d14740f1aa6d2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">上面这一句，实际上是 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">[0xf or x in (15, 10, 5)]</code></span></span></p></div><div id="https://www.notion.so/4e417f87965a45769811a1a43af56c5d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">首先， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">0xf</code></span><span class="SemanticString"> 代表了 十六进制整型 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">15</code></span><span class="SemanticString"> ，同理还可以用二进制、八进制</span></span></p></div><pre id="https://www.notion.so/6506d363b25e44aca21af5cc2e3ad18b" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>0b010or x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
 
@@ -100,22 +103,17 @@
 <span class="token boolean">False</span></span></span></span></code></pre><div id="https://www.notion.so/4027be4722c840dfbb80b09819883de9" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/25de409b4bd54ec581877608add63e8d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">现在再看一眼开头， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">[0xfor x in (15, 10, 5)]</code></span><span class="SemanticString"> 是不是一眼就能能把 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">[15]</code></span><span class="SemanticString"> 给看出来了呢？🥴</span></span></p></div><div id="https://www.notion.so/5f9f3ac764be40c0aa83f833644c42a4" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/0fcea29ab536400296bdb9c3327bddf7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">参考：</span></span></p></div><ol class="NumberedListWrapper"><li id="https://www.notion.so/1d1da8a40f4e4aa1977bc0ca1eacdd71" class="NumberedList" value="1"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/67083039/why-does-python-return-15-for-0xfor-x-in-1-2-3%EF%BC%89">https://stackoverflow.com/questions/67083039/why-does-python-return-15-for-0xfor-x-in-1-2-3</a></span></span></li><li id="https://www.notion.so/1e6cced4e35c413bbeffda6c39d16b73" class="NumberedList" value="2"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://twitter.com/nedbat/status/1382027078816653319">https://twitter.com/nedbat/status/1382027078816653319</a></span></span></li><li id="https://www.notion.so/2b8cbcdd00c64265b5c367a7750624b6" class="NumberedList" value="3"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i">https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i</a></span></span></li><li id="https://www.notion.so/f3d9c04cb41c4f7f98bc33d84258fc9a" class="NumberedList" value="4"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/8370637/complex-numbers-in-python">https://stackoverflow.com/questions/8370637/complex-numbers-in-python</a></span></span></li><li id="https://www.notion.so/3130d25b8f29440b9501bac0cd3cf54c" class="NumberedList" value="5"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.python.org/3/reference/expressions.html#operator-precedence">https://docs.python.org/3/reference/expressions.html#operator-precedence</a></span></span></li><li id="https://www.notion.so/cd85a8304b7c401bb35afd242c137484" class="NumberedList" value="6"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.python.org/3/reference/lexical_analysis.html#whitespace-between-tokens">https://docs.python.org/3/reference/lexical_analysis.html#whitespace-between-tokens</a></span></span></li></ol><div id="https://www.notion.so/e6b77f422f884e3cb29e4cf14f6a1086" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <div>
     <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js"
-	repo="IMBlues/IMBlues.github.io"
-	issue-term="pathname"
-	label="blog-comment"
-	theme="github-light"
-	crossorigin="anonymous"
-	async>
-    </script>
+    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
+      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
+      </script>
   </div>
 
   <footer class="Footer">
-        <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
-        <div>&centerdot;</div>
-        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-            rel="noopener noreferrer">Notablog</a>.
-        </div>
+    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&centerdot;</div>
+    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+        rel="noopener noreferrer">Notablog</a>.
+    </div>
   </footer>
 </body>
 

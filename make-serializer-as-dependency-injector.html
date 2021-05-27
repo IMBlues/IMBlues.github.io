@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-WV23EXEF9X');
@@ -47,33 +47,36 @@
     <a href="index.html">
       <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
     </a>
+    <a href="tag/tech.html">
+      <div class="Navbar__Btn">♯<span>TECH</span></div>
+    </a>
                                                                             <span class="Navbar__Delim">&centerdot;</span>
     <a href="about.html">
-      <div class="Navbar__Btn"><span>🎃</span> <span>关于我</span></div>
+      <div class="Navbar__Btn"> <span>关于我</span></div>
     </a>
                                           </nav>
   <header class="Header">
-          <div class="Header__Spacer Header__Spacer--NoCover">
+        <div class="Header__Spacer Header__Spacer--NoCover">
     </div>
         <div class="Header__Icon"><span>👴</span></div>
         <h1 class="Header__Title">让 DRF Views 支持依赖注入</h1>
-            <div class="DateTagBar">
-                <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, May 24, 2021</span>
-                          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/python.html">python</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--gray">
-            <a href="tag/django.html">django</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--blue">
-            <a href="tag/Dependency injection.html">Dependency injection</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/tech.html">tech</a>
-          </span>
-                  </div>
-          </header>
-      <article id="https://www.notion.so/6c08f2d20db84cc2a66444a61cc21bc1" class="PageRoot"><h2 id="https://www.notion.so/4208ceb89fce471286dc1a2243e93f09" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/4208ceb89fce471286dc1a2243e93f09"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">起因</span></span></h2><div id="https://www.notion.so/6fe33aa3ffaf454ab383ef119a91ae2d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Django 和 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.django-rest-framework.org/">Django REST framework</a></span><span class="SemanticString"> 是 Python 开发者常用的框架组合，通常来说，一个典型的 DRF 式 API 可能长这个样子：</span></span></p></div><pre id="https://www.notion.so/10cd76c1dd224e53a5f9d98ddf5a2996" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>generics <span class="token keyword">import</span> ListAPIView
+        <div class="DateTagBar">
+            <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, May 24, 2021</span>
+                  <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/python.html">python</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--gray">
+        <a href="tag/django.html">django</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--blue">
+        <a href="tag/Dependency injection.html">Dependency injection</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/tech.html">tech</a>
+      </span>
+          </div>
+      </header>
+  <article id="https://www.notion.so/6c08f2d20db84cc2a66444a61cc21bc1" class="PageRoot"><h2 id="https://www.notion.so/4208ceb89fce471286dc1a2243e93f09" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/4208ceb89fce471286dc1a2243e93f09"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">起因</span></span></h2><div id="https://www.notion.so/6fe33aa3ffaf454ab383ef119a91ae2d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Django 和 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.django-rest-framework.org/">Django REST framework</a></span><span class="SemanticString"> 是 Python 开发者常用的框架组合，通常来说，一个典型的 DRF 式 API 可能长这个样子：</span></span></p></div><pre id="https://www.notion.so/10cd76c1dd224e53a5f9d98ddf5a2996" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>generics <span class="token keyword">import</span> ListAPIView
 
 
 <span class="token keyword">class</span> <span class="token class-name">ProfileViewSet</span><span class="token punctuation">(</span>ListAPIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -117,22 +120,17 @@ app <span class="token operator">=</span> FastAPI<span class="token punctuation"
         <span class="token keyword">return</span> results</span></span></span></code></pre><div id="https://www.notion.so/49843f9b7b9846129a4551a484a26ff8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">（可以通过 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://gist.github.com/IMBlues/e36e792159729f429f9abf656ba24d10#gistcomment-3754830">gist 评论</a></span><span class="SemanticString"> 获取更多的例子）</span></span></p></div><div id="https://www.notion.so/94c0764208ef446ca16d08c03ee0d5f0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/393f5da364d44b5f900ab1efaf5d539c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这样的改造我们得到了一些好处：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/8c0fa9ca048d4a278f2a8157438cda6d" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">仅需要简单改造原来的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">ViewSet</code></span><span class="SemanticString"> </span></span></li><li id="https://www.notion.so/185f65bb2b2f47d0825fb2c06ae14a6b" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">完全继承原来的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Serializer</code></span><span class="SemanticString"> </span></span></li><li id="https://www.notion.so/199e2811ad254f97a504824d636e13fb" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">完整支持 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">drf-yasg</code></span><span class="SemanticString"> </span></span></li><li id="https://www.notion.so/c25c5a6cbc1c44d4b564ea46f6a8c00b" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">在原来主干逻辑没有依赖 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">request</code></span><span class="SemanticString"> 对象的情况下，单元测试的用例构造被简化成了 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">dict</code></span><span class="SemanticString"> </span></span></li></ul><div id="https://www.notion.so/d617d8300796498faacba5ba54c14346" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/be61aae127754713b7d165e3ebde76d9" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">当然仍旧还有不完美的地方：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/b4bf8d8aa9154f5ba685b121f7d8b7ab" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">没有使用 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Type Annotation</code></span><span class="SemanticString"> ，在声明上较 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">FastAPI</code></span><span class="SemanticString"> 更为冗余</span></span></li><li id="https://www.notion.so/e279735ddeda4c26a248ef62758b4274" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">对于返回值使用了 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">context</code></span><span class="SemanticString"> 的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Serializer</code></span><span class="SemanticString"> 需要通过 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">inject.ResponseParams</code></span><span class="SemanticString"> 类来包装一次，显得不那么纯粹，暂时也没有更好的思路，</span><span class="SemanticString"><del class="SemanticString__Fragment SemanticString__Fragment--Strike">有空再慢慢改（咕咕🐦）。</del></span></span></li></ul><div id="https://www.notion.so/bbf956b707994f66bc22f153c6fa53e8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <div>
     <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js"
-	repo="IMBlues/IMBlues.github.io"
-	issue-term="pathname"
-	label="blog-comment"
-	theme="github-light"
-	crossorigin="anonymous"
-	async>
-    </script>
+    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
+      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
+      </script>
   </div>
 
   <footer class="Footer">
-        <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
-        <div>&centerdot;</div>
-        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-            rel="noopener noreferrer">Notablog</a>.
-        </div>
+    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&centerdot;</div>
+    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+        rel="noopener noreferrer">Notablog</a>.
+    </div>
   </footer>
 </body>
 

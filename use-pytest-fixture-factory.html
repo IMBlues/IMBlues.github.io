@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-WV23EXEF9X');
@@ -45,35 +45,38 @@
     <a href="index.html">
       <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
     </a>
+    <a href="tag/tech.html">
+      <div class="Navbar__Btn">♯<span>TECH</span></div>
+    </a>
                                                                             <span class="Navbar__Delim">&centerdot;</span>
     <a href="about.html">
-      <div class="Navbar__Btn"><span>🎃</span> <span>关于我</span></div>
+      <div class="Navbar__Btn"> <span>关于我</span></div>
     </a>
                                           </nav>
   <header class="Header">
-          <div class="Header__Spacer Header__Spacer--NoCover">
+        <div class="Header__Spacer Header__Spacer--NoCover">
     </div>
         <h1 class="Header__Title">善用 pytest fixture factory 构建结构优秀的单元测试</h1>
-            <div class="DateTagBar">
-                <span class="DateTagBar__Item DateTagBar__Date">Posted on Wed, Jan 6, 2021</span>
-                          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/python.html">python</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--yellow">
-            <a href="tag/pytest.html">pytest</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
-            <a href="tag/unittest.html">unittest</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
-            <a href="tag/best-practice.html">best-practice</a>
-          </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-            <a href="tag/tech.html">tech</a>
-          </span>
-                  </div>
-          </header>
-      <article id="https://www.notion.so/758e8920e6b347a0814c7dcef1353797" class="PageRoot"><h2 id="https://www.notion.so/2bbc27ac4ce74885bcbaf66905ae709d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/2bbc27ac4ce74885bcbaf66905ae709d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Why pytest ？</span></span></h2><div id="https://www.notion.so/efacfec0c37e4514b5499029456e0fe0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">评价单元测试是否优秀，分支覆盖率是非常重要的指标，而覆盖率的决定因素除了开发自身的素质以外，足够低的用例构建成本也是必不可少。</span></span></p></div><div id="https://www.notion.so/b5984c99a9614c32a1b1ce0968cd8998" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/86e6c824c9794db396c6a750a5168d26" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">对于 Python 应用，当项目逻辑复杂度较高时，单纯使用原生的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">unittest</code></span><span class="SemanticString"> 或者是 Django 提供的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">TestCase</code></span><span class="SemanticString"> 都会遇到一个恼人的问题：测试代码大部分工作在构建各种用例。幸好有 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pytest</code></span><span class="SemanticString"> 提供的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 机制，可以较好的解决这个问题。</span></span></p></div><div id="https://www.notion.so/930d3c0d6f7e44e28b84aebb3cd89857" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/de0c3264760e4f1aadb922d351b75e05" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">本文简单阐述个人的 pytest 使用实践，而关于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 到底好在哪里或者具体使用方法，已经有比较多的文章做了更详细的介绍，我这里就不再赘述：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/402700155d5d4600a32c7a15220f9155" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://blog.daftcode.pl/the-cleaning-hand-of-pytest-28f434f4b684">https://blog.daftcode.pl/the-cleaning-hand-of-pytest-28f434f4b684</a></span></span></li><li id="https://www.notion.so/047be4f70dea41eca9e5deaea75fc374" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://salmonmode.github.io/2019/03/29/building-good-tests.html#dont-inherit-from-unittesttestcase-in-test-classes-either-directly-or-indirectly">https://salmonmode.github.io/2019/03/29/building-good-tests.html#dont-inherit-from-unittesttestcase-in-test-classes-either-directly-or-indirectly</a></span></span></li></ul><div id="https://www.notion.so/c0a46dea32ac47b4a4abd0d1cd891d4c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/d3e7e00f2f04466b92d92522233c929d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/d3e7e00f2f04466b92d92522233c929d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">理想的单元测试</span></span></h2><div id="https://www.notion.so/c276f39189bc4e09bba1f49c53218835" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">从理论来讲，对于一个测试项，我们应该只需关心测试内容的输入和输出（或异常），并且最好能够放到一起管理维护，更形象地说，应该是下面这种伪代码的感觉</span></span></p></div><pre id="https://www.notion.so/2f1cf1015de848be98c525dc75ca78ea" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
+        <div class="DateTagBar">
+            <span class="DateTagBar__Item DateTagBar__Date">Posted on Wed, Jan 6, 2021</span>
+                  <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/python.html">python</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--yellow">
+        <a href="tag/pytest.html">pytest</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
+        <a href="tag/unittest.html">unittest</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+        <a href="tag/best-practice.html">best-practice</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/tech.html">tech</a>
+      </span>
+          </div>
+      </header>
+  <article id="https://www.notion.so/758e8920e6b347a0814c7dcef1353797" class="PageRoot"><h2 id="https://www.notion.so/2bbc27ac4ce74885bcbaf66905ae709d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/2bbc27ac4ce74885bcbaf66905ae709d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Why pytest ？</span></span></h2><div id="https://www.notion.so/efacfec0c37e4514b5499029456e0fe0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">评价单元测试是否优秀，分支覆盖率是非常重要的指标，而覆盖率的决定因素除了开发自身的素质以外，足够低的用例构建成本也是必不可少。</span></span></p></div><div id="https://www.notion.so/b5984c99a9614c32a1b1ce0968cd8998" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/86e6c824c9794db396c6a750a5168d26" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">对于 Python 应用，当项目逻辑复杂度较高时，单纯使用原生的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">unittest</code></span><span class="SemanticString"> 或者是 Django 提供的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">TestCase</code></span><span class="SemanticString"> 都会遇到一个恼人的问题：测试代码大部分工作在构建各种用例。幸好有 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pytest</code></span><span class="SemanticString"> 提供的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 机制，可以较好的解决这个问题。</span></span></p></div><div id="https://www.notion.so/930d3c0d6f7e44e28b84aebb3cd89857" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/de0c3264760e4f1aadb922d351b75e05" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">本文简单阐述个人的 pytest 使用实践，而关于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 到底好在哪里或者具体使用方法，已经有比较多的文章做了更详细的介绍，我这里就不再赘述：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/402700155d5d4600a32c7a15220f9155" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://blog.daftcode.pl/the-cleaning-hand-of-pytest-28f434f4b684">https://blog.daftcode.pl/the-cleaning-hand-of-pytest-28f434f4b684</a></span></span></li><li id="https://www.notion.so/047be4f70dea41eca9e5deaea75fc374" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://salmonmode.github.io/2019/03/29/building-good-tests.html#dont-inherit-from-unittesttestcase-in-test-classes-either-directly-or-indirectly">https://salmonmode.github.io/2019/03/29/building-good-tests.html#dont-inherit-from-unittesttestcase-in-test-classes-either-directly-or-indirectly</a></span></span></li></ul><div id="https://www.notion.so/c0a46dea32ac47b4a4abd0d1cd891d4c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/d3e7e00f2f04466b92d92522233c929d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/d3e7e00f2f04466b92d92522233c929d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">理想的单元测试</span></span></h2><div id="https://www.notion.so/c276f39189bc4e09bba1f49c53218835" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">从理论来讲，对于一个测试项，我们应该只需关心测试内容的输入和输出（或异常），并且最好能够放到一起管理维护，更形象地说，应该是下面这种伪代码的感觉</span></span></p></div><pre id="https://www.notion.so/2f1cf1015de848be98c525dc75ca78ea" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
 <span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期异常<span class="token punctuation">)</span>
@@ -129,22 +132,17 @@
                 <span class="token keyword">assert</span> call_test<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span> <span class="token operator">==</span> expected</span></span></span></code></pre><div id="https://www.notion.so/fa0428ec99b34b09a26f2800cfbce9a2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这样一来，只要我在一开始构建好相关的工厂函数，添加更多的测试用例就只需在 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">parametrize</code></span><span class="SemanticString"> 中不断添加即可，开发注意力成功从重复的工具构建转移到了真实用例。</span></span></p></div><div id="https://www.notion.so/e4e9d73c1e764d878691447e2daecf6f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <div>
     <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js"
-	repo="IMBlues/IMBlues.github.io"
-	issue-term="pathname"
-	label="blog-comment"
-	theme="github-light"
-	crossorigin="anonymous"
-	async>
-    </script>
+    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
+      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
+      </script>
   </div>
 
   <footer class="Footer">
-        <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
-        <div>&centerdot;</div>
-        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-            rel="noopener noreferrer">Notablog</a>.
-        </div>
+    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&centerdot;</div>
+    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+        rel="noopener noreferrer">Notablog</a>.
+    </div>
   </footer>
 </body>
 
