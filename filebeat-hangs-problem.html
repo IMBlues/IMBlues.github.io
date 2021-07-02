@@ -129,8 +129,14 @@ Process <span class="token operator">=</span> namedtuple<span class="token punct
     open_file_process_map <span class="token operator">=</span> get_processes_open<span class="token punctuation">(</span>file_regex<span class="token punctuation">)</span>
     <span class="token keyword">for</span> f <span class="token keyword">in</span> filter_files_by_expire_minutes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">if</span> <span class="token builtin">str</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token keyword">not</span> <span class="token keyword">in</span> open_file_process_map<span class="token punctuation">:</span>
-            deleted_count <span class="token operator">+=</span> <span class="token number">1</span>
             logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"deleting </span><span class="token interpolation"><span class="token punctuation">{</span>f<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                f<span class="token punctuation">.</span>unlink<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                deleted_count <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                skipped_count <span class="token operator">+=</span> <span class="token number">1</span>
+                logging<span class="token punctuation">.</span>warning<span class="token punctuation">(</span><span class="token string">"failed to delete file: %s, for: %s"</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+                <span class="token keyword">continue</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             skipped_count <span class="token operator">+=</span> <span class="token number">1</span>
             logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"skipping </span><span class="token interpolation"><span class="token punctuation">{</span>f<span class="token punctuation">}</span></span><span class="token string">, for process: </span><span class="token interpolation"><span class="token punctuation">{</span>open_file_process_map<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
@@ -146,7 +152,7 @@ Process <span class="token operator">=</span> namedtuple<span class="token punct
         sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
 
     arg_files <span class="token operator">=</span> <span class="token string">""</span>
-    arg_minutes <span class="token operator">=</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">60</span>
+    arg_minutes <span class="token operator">=</span> <span class="token number">1440</span>
     <span class="token keyword">for</span> opt<span class="token punctuation">,</span> arg <span class="token keyword">in</span> opts<span class="token punctuation">:</span>
         <span class="token keyword">if</span> opt <span class="token operator">==</span> <span class="token string">"-h"</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Usage: python delete_files.py -f /data/*/*.log* -m 1440"</span><span class="token punctuation">)</span>
