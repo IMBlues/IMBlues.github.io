@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-WV23EXEF9X');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:title" content="一些 Helm 最(tòng)佳(kǔ)实践">
+    <meta property="og:type" content="blog">
+  <title>一些 Helm 最(tòng)佳(kǔ)实践</title>
+  <!-- Favicon -->
+    <link rel="shortcut icon" href="🗿">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+  <link rel="stylesheet" type="text/css" href="css/notablog.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <style>
+    :root {
+      font-size: 18px;
+    }
+
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+    <a href="index.html">
+      <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
+    </a>
+    <a href="tag/tech.html">
+      <div class="Navbar__Btn">♯<span>TECH</span></div>
+    </a>
+                                                                                                    <span class="Navbar__Delim">&centerdot;</span>
+    <a href="about.html">
+      <div class="Navbar__Btn"><span>🤙</span> <span>关于我</span></div>
+    </a>
+                                                                  </nav>
+  <header class="Header">
+        <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+        <div class="Header__Icon"><span>💩</span></div>
+        <h1 class="Header__Title">一些 Helm 最(tòng)佳(kǔ)实践</h1>
+        <div class="DateTagBar">
+            <span class="DateTagBar__Item DateTagBar__Date">Posted on Wed, Sep 1, 2021</span>
+                  <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--blue">
+        <a href="tag/helm.html">helm</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+        <a href="tag/best-practice.html">best-practice</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+        <a href="tag/k8s.html">k8s</a>
+      </span>
+            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+        <a href="tag/tech.html">tech</a>
+      </span>
+          </div>
+      </header>
+  <article id="https://www.notion.so/3acb3b56ac3347c3ad783ce1c091b508" class="PageRoot"><div id="https://www.notion.so/0c2f7cde359b410d871dc56434c156c1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/bb3be6b4f6bd49969f93b6c3fa23e0ae" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/bb3be6b4f6bd49969f93b6c3fa23e0ae"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">yaml</code></span><span class="SemanticString">工程师的血泪 shi</span></span></h2><h3 id="https://www.notion.so/c1fc387b11424622b7b17ba62d75b2bb" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/c1fc387b11424622b7b17ba62d75b2bb"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">子 Chart 使用中划线时无法作为参数路径选取</span></span></h3><pre id="https://www.notion.so/d46a20ee080b402083f03cbebc2b583d" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># values.yaml</span>
+<span class="token key atrule">sub-foo-chart</span><span class="token punctuation">:</span>
+  <span class="token key atrule">preferName</span><span class="token punctuation">:</span> <span class="token string">"Happy"</span>
+
+<span class="token comment"># _helper.tpl</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.sub<span class="token punctuation">-</span>foo<span class="token punctuation">-</span>chart.preferName <span class="token punctuation">}</span><span class="token punctuation">}</span> ❌ 错误写法
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> index .Values "sub<span class="token punctuation">-</span>foo<span class="token punctuation">-</span>chart" "preferName" <span class="token punctuation">}</span><span class="token punctuation">}</span> 💩 正确但丑陋的写法</span></span></span></code></pre><div id="https://www.notion.so/a8595dbd6fb8426d9ad1e23ccae46b59" class="Bookmark"><a href="https://github.com/helm/helm/issues/2192"><h5 class="Bookmark__Title">Accessing values of the subchart with dash in the name · Issue #2192 · helm/helm</h5><p class="Bookmark__Desc">Based on the docs, there is a convention to name charts with dashes. But at the same time based on this doc, you should never have values with dashes. So, let&#x27;s say I have 2 dependent charts: gitlab and gitlab-runner. How can I configure...</p><p class="Bookmark__Link">https://github.com/helm/helm/issues/2192</p></a></div><div id="https://www.notion.so/ae6d6c29a34d4b8393624d0fbfed817d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h3 id="https://www.notion.so/620603fc0f94480184dd224717043637" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/620603fc0f94480184dd224717043637"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Chart 之间的继承关系只能有一级</span></span></h3><div id="https://www.notion.so/7c77463b14114c47a8da5fc46198a2a5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">所有的依赖关系必须简化成两层</span></span></p></div><pre id="https://www.notion.so/2732e3ec861d41c196c6daa1890fe2a3" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># parentchart/requirements.yaml</span>
+<span class="token key atrule">dependencies</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> childchart
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">10191</span>
+    <span class="token key atrule">version</span><span class="token punctuation">:</span> 0.1.0
+    <span class="token key atrule">condition</span><span class="token punctuation">:</span> childchart.enabled
+
+<span class="token comment"># childchart/requirements.yaml</span>
+<span class="token key atrule">dependencies</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> grandchildchart
+    <span class="token key atrule">repository</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">10191</span>
+    <span class="token key atrule">version</span><span class="token punctuation">:</span> 0.1.0
+    <span class="token key atrule">condition</span><span class="token punctuation">:</span> grandchildchart1.enabled<span class="token punctuation">,</span>childchart.grandchildchart.enabled
+
+<span class="token comment"># parentchart/values.yaml</span>
+<span class="token key atrule">childchart</span><span class="token punctuation">:</span>
+  <span class="token key atrule">grandchildchart</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> true  ❌ 并不能够生效</span></span></span></code></pre><div id="https://www.notion.so/0efa580b07e04b419da0f7564cab9032" class="Bookmark"><a href="https://github.com/helm/helm/issues/5135"><h5 class="Bookmark__Title">Nested sub charts values · Issue #5135 · helm/helm</h5><p class="Bookmark__Desc">You can&#x27;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session.</p><p class="Bookmark__Link">https://github.com/helm/helm/issues/5135</p></a></div><div id="https://www.notion.so/3b3d03d8e0574669be7eb5dc3dbe87c7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h3 id="https://www.notion.so/04ba7f30446c4a70a46aa0b5197f6883" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/04ba7f30446c4a70a46aa0b5197f6883"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Hook 创建的资源不能被 uninstall</span></span></h3><pre id="https://www.notion.so/9bbad2147d2342469fb7f7b2d6a7fc9d" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+	<span class="token key atrule">"helm.sh/hook"</span><span class="token punctuation">:</span> <span class="token string">"pre-install"</span>
+  <span class="token key atrule">"helm.sh/hook-weight"</span><span class="token punctuation">:</span> <span class="token string">"-1"</span>
+  <span class="token key atrule">"helm.sh/hook-delete-policy"</span><span class="token punctuation">:</span> hook<span class="token punctuation">-</span>failed<span class="token punctuation">,</span>before<span class="token punctuation">-</span>hook<span class="token punctuation">-</span>creation</span></span></span></code></pre><div id="https://www.notion.so/5596e477489f4e7e9747d1efccdb1871" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">类似这样通过 helm hook 创建出来的资源，是不能够被 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">helm uninstall</code></span><span class="SemanticString"> 删除的。如果只是用来做一些临时任务当然问题不大，但是我们利用了 hook 创建了一些内建存储，所以无法删除的特性会带来大量的无用存储资源占用，非常头疼。</span></span></p></div><div id="https://www.notion.so/14cc657c16c34da38d9d49161fc96284" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/0308bcab0e4c4d898dde97c180f4dd7a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">可以通过 label 统一删除，一个临时的 workaround 💩：</span></span></p></div><pre id="https://www.notion.so/96fa9d6f0b2c4d408ffab7ebbce0ab33" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>kubectl delete deploy,sts,cronjob,pod,svc,ingress,secret,cm,sa,pvc -n <span class="token variable">${NAMESPACE}</span> -l app.kubernetes.io/instance<span class="token operator">=</span><span class="token variable">${RELEASE_NAME}</span></span></span></span></code></pre><div id="https://www.notion.so/fbbdbb4deca04ce2978fcaa902cffcc5" class="Bookmark"><a href="https://github.com/helm/helm/issues/9206"><h5 class="Bookmark__Title">Manifests with hooks not getting deleted during helm uninstall · Issue #9206 · helm/helm</h5><p class="Bookmark__Desc">tomcruise81 changed the title PodDisruptionBudget with hooks not getting deleted during helm uninstall Hooks not getting deleted during helm uninstall Jan 8, 2021 tomcruise81 changed the title Hooks not getting deleted during helm uninstall Manifests with hooks not getting deleted during helm uninstall Jan 8, 2021 You can&#x27;t perform that action at this time.</p><p class="Bookmark__Link">https://github.com/helm/helm/issues/9206</p></a></div><div id="https://www.notion.so/dc28efb3947541aa82c8a0364a88191b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/8d1753c800fd40ffbf879586b24f4551" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/8d1753c800fd40ffbf879586b24f4551"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">一些苦中作乐的解决方案</span></span></h2><div id="https://www.notion.so/2453472097754bf8a7425ce6777c1912" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/e8b1e428196b49e597264d27285234ae" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/e8b1e428196b49e597264d27285234ae"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">为多个项目模块创建统一的库</span></span></h2><div id="https://www.notion.so/d879ccccd9d84bdd9145862951ce44b2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">如果项目中存在多个模块，那么可以通过 subChart 方式统一整合</span></span></p></div><pre id="https://www.notion.so/3c475fc575ee48fa91b907c8d9360740" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v2
+<span class="token key atrule">name</span><span class="token punctuation">:</span> bk<span class="token punctuation">-</span>user<span class="token punctuation">-</span>stack
+<span class="token key atrule">description</span><span class="token punctuation">:</span> A Helm chart for bk<span class="token punctuation">-</span>user
+<span class="token key atrule">type</span><span class="token punctuation">:</span> application
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 0.5.1
+<span class="token key atrule">appVersion</span><span class="token punctuation">:</span> v2.3.0<span class="token punctuation">-</span>a2
+
+<span class="token key atrule">dependencies</span><span class="token punctuation">:</span>
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> bkuserapi
+  <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"1.0.0"</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> <span class="token string">"file://../api"</span>
+  <span class="token key atrule">condition</span><span class="token punctuation">:</span> bkuserapi.enabled
+
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> bkusersaas
+  <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"1.0.0"</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> <span class="token string">"file://../saas"</span>
+  <span class="token key atrule">condition</span><span class="token punctuation">:</span> bkusersaas.enabled
+
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> mariadb
+  <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"9.x.x"</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> <span class="token string">"https://charts.bitnami.com/bitnami"</span>
+  <span class="token key atrule">condition</span><span class="token punctuation">:</span> mariadb.enabled
+
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> redis
+  <span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"14.x.x"</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> <span class="token string">"https://charts.bitnami.com/bitnami"</span>
+  <span class="token key atrule">condition</span><span class="token punctuation">:</span> redis.enabled</span></span></span></code></pre><div id="https://www.notion.so/21ebb74c11c44c189cc1d80274a6b04b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">由于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">bkuserapi</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">bkusersaas</code></span><span class="SemanticString"> 都有类似的架构，所以重复为二者创建 Helm Chart 一定不是明智的选择。</span></span></p></div><div id="https://www.notion.so/330861d629ee48eeb0f1de7acf6ba87a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们针对这种 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">web</code></span><span class="SemanticString"> 类型的应用</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/TencentBlueKing/bk-user/tree/master/deploy/helm/chartty">多封装了一层</a></span><span class="SemanticString">，能够一定程度上减少重复劳动。</span></span></p></div><div id="https://www.notion.so/bf922cf1bd8f42f498704c2167b0c306" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">可以通过自定义的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">processes</code></span><span class="SemanticString"> 变量完成对于 workload 的定义和封装：</span></span></p></div><pre id="https://www.notion.so/e02d69738b5a49a3a50dae3808471a8d" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># 定义应用内的多个进程</span>
+<span class="token key atrule">processes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ingress</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">host</span><span class="token punctuation">:</span> <span class="token string">"bkuser-api.{{ .Values.global.sharedDomain }}"</span>
+      <span class="token key atrule">paths</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"/"</span><span class="token punctuation">]</span>
+    <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+      <span class="token key atrule">limits</span><span class="token punctuation">:</span>
+        <span class="token key atrule">cpu</span><span class="token punctuation">:</span> 1024m
+        <span class="token key atrule">memory</span><span class="token punctuation">:</span> 1024Mi
+      <span class="token key atrule">requests</span><span class="token punctuation">:</span>
+        <span class="token key atrule">cpu</span><span class="token punctuation">:</span> 200m
+        <span class="token key atrule">memory</span><span class="token punctuation">:</span> 128Mi
+    <span class="token key atrule">readinessProbe</span><span class="token punctuation">:</span>
+      <span class="token key atrule">tcpSocket</span><span class="token punctuation">:</span>
+        <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8000</span>
+      <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">5</span>
+      <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+    <span class="token key atrule">livenessProbe</span><span class="token punctuation">:</span>
+      <span class="token key atrule">httpGet</span><span class="token punctuation">:</span>
+        <span class="token key atrule">path</span><span class="token punctuation">:</span> /ping
+        <span class="token key atrule">port</span><span class="token punctuation">:</span> http
+      <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">5</span>
+      <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+  <span class="token key atrule">celery</span><span class="token punctuation">:</span>
+    <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> bash
+    <span class="token key atrule">args</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /app/start_celery.sh
+  <span class="token key atrule">beat</span><span class="token punctuation">:</span>
+    <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> bash
+    <span class="token key atrule">args</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /app/start_beat.sh</span></span></span></code></pre><div id="https://www.notion.so/dac5dfb12c904bb0bc9ddaaecdbbca46" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">具体内容可以参考 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/TencentBlueKing/bk-user">TencentBlueking/bk-user</a></span><span class="SemanticString"> 的</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/TencentBlueKing/bk-user/tree/master/deploy">部署配置</a></span><span class="SemanticString">，结合 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/TencentBlueKing/bk-user/blob/master/Makefile"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Makefile</code></a></span><span class="SemanticString"> 可以实现一件部署\卸载，一定程度上缓解了 Helm 设计弊病带来的不便。</span></span></p></div><div id="https://www.notion.so/8febf60e7e8e4d7a97fdf969bd2f135e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+  <div>
+    <!-- utterances - Github issue comment -->
+    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
+      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
+      </script>
+  </div>
+
+  <footer class="Footer">
+    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&centerdot;</div>
+    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+        rel="noopener noreferrer">Notablog</a>.
+    </div>
+  </footer>
+</body>
+
+</html>
