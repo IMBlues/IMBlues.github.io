@@ -18,14 +18,18 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="你看不懂的 Python 写法">
-    <meta name="description" content="小朋友，你是否有很多问号">
-  <meta property="og:description" content="小朋友，你是否有很多问号">
-    <meta property="og:type" content="blog">
-  <title>你看不懂的 Python 写法</title>
+  <meta property="og:title" content="{{post.title}}">
+  {{if(options.post.description.length > 0)}}
+  <meta name="description" content="{{post.descriptionPlain}}">
+  <meta property="og:description" content="{{post.descriptionPlain}}">
+  {{/if}}
+  <meta property="og:type" content="blog">
+  <title>{{post.title}}</title>
   <!-- Favicon -->
-    <link rel="shortcut icon" href="🗿">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  {{if(options.siteMeta.icon)}}
+  <link rel="shortcut icon" href="{{siteMeta.icon}}">
+  {{/if}}
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
   <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
@@ -45,66 +49,47 @@
 <body>
   <nav class="Navbar">
     <a href="index.html">
-      <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
+      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
     </a>
     <a href="tag/tech.html">
       <div class="Navbar__Btn">♯<span>TECH</span></div>
     </a>
-                                                                                                            <span class="Navbar__Delim">&centerdot;</span>
-    <a href="0316b907039e49eb86c087e28a94f00b.html">
-      <div class="Navbar__Btn"><span>🧱</span> <span>Projects</span></div>
+    {{each(options.siteMeta.pages)}}
+    {{if(@this.publish && @this.inMenu)}}
+    <span class="Navbar__Delim">&centerdot;</span>
+    <a href="{{@this.url}}">
+      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
     </a>
-                <span class="Navbar__Delim">&centerdot;</span>
-    <a href="about.html">
-      <div class="Navbar__Btn"><span>🤙</span> <span>关于我</span></div>
-    </a>
-                                                                  </nav>
+    {{/if}}
+    {{/each}}
+  </nav>
   <header class="Header">
-        <div class="Header__Spacer Header__Spacer--NoCover">
+    {{if(options.post.cover)}}
+    <div class="Header__Cover">
+      <img src="{{post.cover}}">
     </div>
-        <div class="Header__Icon"><span>❓</span></div>
-        <h1 class="Header__Title">你看不懂的 Python 写法</h1>
-        <div class="DateTagBar">
-            <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, May 10, 2021</span>
-                  <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-        <a href="tag/python.html">python</a>
+    {{/if}}
+    <div class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
+    </div>
+    {{if(options.post.icon)}}
+    <div class="Header__Icon">{{post.iconHTML}}</div>
+    {{/if}}
+    <h1 class="Header__Title">{{post.title}}</h1>
+    {{if(options.post.date || options.post.tags.length)}}
+    <div class="DateTagBar">
+      {{if(options.post.date)}}
+      <span class="DateTagBar__Item DateTagBar__Date">Posted on {{post.dateString}}</span>
+      {{/if}}
+      {{each(options.post.tags)}}
+      <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
+        <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
       </span>
-            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-        <a href="tag/fun.html">fun</a>
-      </span>
-            <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-        <a href="tag/tech.html">tech</a>
-      </span>
-          </div>
-      </header>
-  <article id="https://www.notion.so/2fe5092ad91f4267a6d8d778752afe94" class="PageRoot"><div id="https://www.notion.so/873b158ebf9949659fd09cfaad65e928" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">近来在网上冲浪时看到了一个奇怪的 Python 语句：</span></span></p></div><pre id="https://www.notion.so/a01faae981bc4e68aac239b10959237d" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>0xfor x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span></span></span></span></code></pre><div id="https://www.notion.so/4135a220b493482a8779a70ea2ade579" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">有那么一瞬间，对自己多年的 Python 语法产生了怀疑， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">0xfor</code></span><span class="SemanticString"> 是一个什么新的循环关键字？</span></span></p></div><div id="https://www.notion.so/d65972e871d349cca7328113bb635a93" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">经过一番探究，发现一个奇怪的 Python 语法世界。</span></span></p></div><div id="https://www.notion.so/d478e5a012d44202b23660944236b0c4" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/15da7ebbb52546a6bb8592f0d1e573e3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">上面这一句，实际上是 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">[0xf or x in (15, 10, 5)]</code></span></span></p></div><div id="https://www.notion.so/12aa40b11bff4bfaa4940e4bcff4f0d8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">首先， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">0xf</code></span><span class="SemanticString"> 代表了 十六进制整型 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">15</code></span><span class="SemanticString"> ，同理还可以用二进制、八进制</span></span></p></div><pre id="https://www.notion.so/dc8499ed2fe9464f901b35f3676786d7" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>0b010or x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+      {{/each}}
+    </div>
+    {{/if}}
+  </header>
+  {{post.contentHTML}}
 
-<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">[</span>0o0or x <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span></span></span></span></code></pre><div id="https://www.notion.so/583634c579354fdcbd09a24c811ce8b0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">还有一个特殊数字表示—— </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">j</code></span><span class="SemanticString"> ，代表 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.python.org/2/library/stdtypes.html#numeric-types-int-float-long-complex">complex（复数）类型</a></span><span class="SemanticString">， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">j</code></span><span class="SemanticString"> 在这里表示虚数 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">i</code></span><span class="SemanticString"> （</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i">不用 </a></span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i"><code class="SemanticString__Fragment SemanticString__Fragment--Code">i</code></a></span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i"> 的原因</a></span><span class="SemanticString">），也可以有很奇怪的写法：</span></span></p></div><pre id="https://www.notion.so/751f94a80fb64e05864c8f225f57d43f" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> 0jor<span class="token punctuation">.</span><span class="token number">0j</span>
-<span class="token number">0j</span>
-
-<span class="token operator">>></span><span class="token operator">></span> 0jis<span class="token punctuation">.</span><span class="token number">0j</span>
-<span class="token boolean">True</span></span></span></span></code></pre><div id="https://www.notion.so/824679999f4640fba43b1da43b42a604" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/8292963269a34f12a854287df0ba56be" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">其次，在 Python  中操作符(Operator)左右的</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.python.org/3/reference/lexical_analysis.html#whitespace-between-tokens">空格并不全是必须的</a></span></span></p></div><blockquote id="https://www.notion.so/c1354c15291d4707b68593b089ee066b" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">&quot; Whitespace is needed between two tokens only if their concatenation could otherwise be interpreted as a different token&quot;</span></span></blockquote><div id="https://www.notion.so/6dd08f80cb264354b4b428664a0c8612" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">所以理论上你可以写出类似这样的代码</span></span></p></div><pre id="https://www.notion.so/ee4e67f731d94031bc068a00521d35f4" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> 0xfin<span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span>
-<span class="token boolean">True</span>
-
-<span class="token operator">>></span><span class="token operator">></span> 0o7is<span class="token punctuation">[</span><span class="token number">0xf</span><span class="token punctuation">]</span>
-<span class="token boolean">False</span>
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token number">0o7</span><span class="token operator">&amp;</span><span class="token number">0xf</span>
-<span class="token number">7</span>
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token operator">~</span><span class="token number">0o0</span><span class="token operator">**</span><span class="token number">0o0</span>
-<span class="token operator">-</span><span class="token number">2</span></span></span></span></code></pre><div id="https://www.notion.so/8e9082f00c294648bcf8a701d0601433" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/2e7ccf3a631c46fe910d0426657546b8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">最后，由于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">or</code></span><span class="SemanticString"> 操作符遵循</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://en.wikipedia.org/wiki/Short-circuit_evaluation">最短求值</a></span><span class="SemanticString">原则，只要左侧表达式为真，右侧表达式是不会执行的，所以任何奇怪的表达都可以正常运行：</span></span></p></div><pre id="https://www.notion.so/a2f9ff9fd7a94c058ca287fff811cd78" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> 0xdeadbeefor whysoserious
-<span class="token number">3735928559</span>
-
-<span class="token operator">>></span><span class="token operator">></span> 0xdeadbeefor whysoserious
-<span class="token number">3735928559</span>
-
-<span class="token operator">>></span><span class="token operator">></span> 0o0and whysoserious
-<span class="token number">0</span></span></span></span></code></pre><div id="https://www.notion.so/f4691607046141b28a4d849e198eac57" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/9c25e0e5623e470ea59c94521bdbc884" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">所以综上，我们来一个终极“乱码”：</span></span></p></div><pre id="https://www.notion.so/5976c1c8abc24c4886f994e26a9fe54f" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token operator">>></span><span class="token operator">></span> <span class="token number">0b010</span><span class="token operator">&amp;</span><span class="token number">0o0</span><span class="token operator">&amp;</span>0b0is<span class="token punctuation">(</span><span class="token number">0j</span><span class="token punctuation">)</span><span class="token keyword">in</span><span class="token punctuation">[</span>0xdeadbeefor<span class="token punctuation">[</span><span class="token string">"是不是很奇怪这样也能运行"</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-<span class="token boolean">False</span></span></span></span></code></pre><div id="https://www.notion.so/71c0d91856984e3ca9059fae6c2abb11" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/37ea3443142947549b2447ec4eb1badf" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">现在再看一眼开头， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">[0xfor x in (15, 10, 5)]</code></span><span class="SemanticString"> 是不是一眼就能能把 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">[15]</code></span><span class="SemanticString"> 给看出来了呢？🥴</span></span></p></div><div id="https://www.notion.so/73a35871097547f596a66033797ef45b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/d83aa6ea9e3944539e6a73aca62fb03c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">参考：</span></span></p></div><ol class="NumberedListWrapper"><li id="https://www.notion.so/9d3342d584e54ff6982d024516e5dc74" class="NumberedList" value="1"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/67083039/why-does-python-return-15-for-0xfor-x-in-1-2-3%EF%BC%89">https://stackoverflow.com/questions/67083039/why-does-python-return-15-for-0xfor-x-in-1-2-3</a></span></span></li><li id="https://www.notion.so/49e166525c374e61928683657e04bea9" class="NumberedList" value="2"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://twitter.com/nedbat/status/1382027078816653319">https://twitter.com/nedbat/status/1382027078816653319</a></span></span></li><li id="https://www.notion.so/93d44ff5b06145f8b94b2f211acb3f6f" class="NumberedList" value="3"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i">https://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i</a></span></span></li><li id="https://www.notion.so/6f2805f7f7d146c49a99492338c9ed5a" class="NumberedList" value="4"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/8370637/complex-numbers-in-python">https://stackoverflow.com/questions/8370637/complex-numbers-in-python</a></span></span></li><li id="https://www.notion.so/c5d4371ffccc48ec89e7af6109dbbc81" class="NumberedList" value="5"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.python.org/3/reference/expressions.html#operator-precedence">https://docs.python.org/3/reference/expressions.html#operator-precedence</a></span></span></li><li id="https://www.notion.so/1ee1bc2376d4410082a63b1413250162" class="NumberedList" value="6"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.python.org/3/reference/lexical_analysis.html#whitespace-between-tokens">https://docs.python.org/3/reference/lexical_analysis.html#whitespace-between-tokens</a></span></span></li></ol><div id="https://www.notion.so/7ad1b31651384840a9bba2779302b970" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <div>
     <!-- utterances - Github issue comment -->
     <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
@@ -113,7 +98,7 @@
   </div>
 
   <footer class="Footer">
-    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&copy; {{siteMeta.title}} 2021</div>
     <div>&centerdot;</div>
     <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
         rel="noopener noreferrer">Notablog</a>.

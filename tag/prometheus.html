@@ -19,14 +19,16 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="#prometheus — 布鲁斯🐟的奇思乱想">
-  <meta name="description" content="All posts tagged with prometheus">
-  <meta property="og:description" content="All posts tagged with prometheus">
+  <meta property="og:title" content="#{{tagName}} — {{siteMeta.title}}">
+  <meta name="description" content="All posts tagged with {{tagName}}">
+  <meta property="og:description" content="All posts tagged with {{tagName}}">
   <meta property="og:type" content="blog">
-  <title>#prometheus — 布鲁斯🐟的奇思乱想</title>
+  <title>#{{tagName}} — {{siteMeta.title}}</title>
   <!-- Favicon -->
-    <link rel="shortcut icon" href="🗿">
-    <base href="../">
+  {{if(options.siteMeta.icon)}}
+  <link rel="shortcut icon" href="{{siteMeta.icon}}">
+  {{/if}}
+  <base href="../">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
@@ -43,28 +45,55 @@
 <body>
   <nav class="Navbar">
     <a href="index.html">
-      <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
+      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
     </a>
     <a href="tag/tech.html">
       <div class="Navbar__Btn">♯<span>TECH</span></div>
     </a>
-                                                                                                            <span class="Navbar__Delim">&centerdot;</span>
-    <a href="0316b907039e49eb86c087e28a94f00b.html">
-      <div class="Navbar__Btn"><span>🧱</span> <span>Projects</span></div>
+    {{each(options.siteMeta.pages)}}
+    {{if(@this.publish && @this.inMenu)}}
+    <span class="Navbar__Delim">&centerdot;</span>
+    <a href="{{@this.url}}">
+      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
     </a>
-                <span class="Navbar__Delim">&centerdot;</span>
-    <a href="about.html">
-      <div class="Navbar__Btn"><span>🤙</span> <span>关于我</span></div>
-    </a>
-                                                                  </nav>
+    {{/if}}
+    {{/each}}
+  </nav>
   <header class="Header">
     <div class="Header__Spacer--NoCover"></div>
-    <h1 class="Header__Title"># prometheus</h1>
+    <h1 class="Header__Title"># {{tagName}}</h1>
   </header>
   <article class="ArticleList">
-              </article>
+    {{each(options.pages)}}
+    {{if(@this.publish && @this.inList)}}
+    <article class="Article">
+      <h3 class="Article__Title">
+        {{@this.iconHTML}}
+        <a href="{{@this.url}}">
+          {{@this.title}}
+        </a>
+      </h3>
+      {{if(@this.descriptionHTML)}}
+      <p class="Article__Desc">
+        {{@this.descriptionHTML}}
+      </p>
+      {{/if}}
+      <div class="DateTagBar">
+        {{if(@this.date)}}
+        <span class="DateTagBar__Item DateTagBar__Date">Posted on {{@this.dateString}}</span>
+        {{/if}}
+        {{each(@this.tags)}}
+        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
+          <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
+        </span>
+        {{/each}}
+      </div>
+    </article>
+    {{/if}}
+    {{/each}}
+  </article>
   <footer class="Footer">
-    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&copy; {{siteMeta.title}} 2021</div>
     <div>&centerdot;</div>
     <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
         rel="noopener noreferrer">Notablog</a>.

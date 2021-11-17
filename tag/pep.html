@@ -19,14 +19,16 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="#pep — 布鲁斯🐟的奇思乱想">
-  <meta name="description" content="All posts tagged with pep">
-  <meta property="og:description" content="All posts tagged with pep">
+  <meta property="og:title" content="#{{tagName}} — {{siteMeta.title}}">
+  <meta name="description" content="All posts tagged with {{tagName}}">
+  <meta property="og:description" content="All posts tagged with {{tagName}}">
   <meta property="og:type" content="blog">
-  <title>#pep — 布鲁斯🐟的奇思乱想</title>
+  <title>#{{tagName}} — {{siteMeta.title}}</title>
   <!-- Favicon -->
-    <link rel="shortcut icon" href="🗿">
-    <base href="../">
+  {{if(options.siteMeta.icon)}}
+  <link rel="shortcut icon" href="{{siteMeta.icon}}">
+  {{/if}}
+  <base href="../">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
@@ -43,68 +45,55 @@
 <body>
   <nav class="Navbar">
     <a href="index.html">
-      <div class="Navbar__Btn"><span>🗿</span> <span>Home</span></div>
+      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
     </a>
     <a href="tag/tech.html">
       <div class="Navbar__Btn">♯<span>TECH</span></div>
     </a>
-                                                                                                            <span class="Navbar__Delim">&centerdot;</span>
-    <a href="0316b907039e49eb86c087e28a94f00b.html">
-      <div class="Navbar__Btn"><span>🧱</span> <span>Projects</span></div>
+    {{each(options.siteMeta.pages)}}
+    {{if(@this.publish && @this.inMenu)}}
+    <span class="Navbar__Delim">&centerdot;</span>
+    <a href="{{@this.url}}">
+      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
     </a>
-                <span class="Navbar__Delim">&centerdot;</span>
-    <a href="about.html">
-      <div class="Navbar__Btn"><span>🤙</span> <span>关于我</span></div>
-    </a>
-                                                                  </nav>
+    {{/if}}
+    {{/each}}
+  </nav>
   <header class="Header">
     <div class="Header__Spacer--NoCover"></div>
-    <h1 class="Header__Title"># pep</h1>
+    <h1 class="Header__Title"># {{tagName}}</h1>
   </header>
   <article class="ArticleList">
-            <article class="Article">
+    {{each(options.pages)}}
+    {{if(@this.publish && @this.inList)}}
+    <article class="Article">
       <h3 class="Article__Title">
-                <a href="use-pyprojects-toml-as-project-tool.html">
-          使用 pyproject.toml 管理你的 Python 项目        </a>
+        {{@this.iconHTML}}
+        <a href="{{@this.url}}">
+          {{@this.title}}
+        </a>
       </h3>
-            <p class="Article__Desc">
-        <span class="SemanticStringArray"><span class="SemanticString">就差 mypy 了，求龟叔可怜一下强迫症患者</span></span>      </p>
-            <div class="DateTagBar">
-                <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, Nov 30, 2020</span>
-                        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-          <a href="tag/python.html">python</a>
+      {{if(@this.descriptionHTML)}}
+      <p class="Article__Desc">
+        {{@this.descriptionHTML}}
+      </p>
+      {{/if}}
+      <div class="DateTagBar">
+        {{if(@this.date)}}
+        <span class="DateTagBar__Item DateTagBar__Date">Posted on {{@this.dateString}}</span>
+        {{/if}}
+        {{each(@this.tags)}}
+        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
+          <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
         </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--red">
-          <a href="tag/pep.html">pep</a>
-        </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-          <a href="tag/tech.html">tech</a>
-        </span>
-              </div>
+        {{/each}}
+      </div>
     </article>
-                <article class="Article">
-      <h3 class="Article__Title">
-        <span>🐍</span>        <a href="python-type-hint.html">
-          让你的 Python 静态起来        </a>
-      </h3>
-            <p class="Article__Desc">
-        <span class="SemanticStringArray"><span class="SemanticString">旧文重发</span></span>      </p>
-            <div class="DateTagBar">
-                <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, Apr 1, 2019</span>
-                        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-          <a href="tag/python.html">python</a>
-        </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--red">
-          <a href="tag/pep.html">pep</a>
-        </span>
-                <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
-          <a href="tag/tech.html">tech</a>
-        </span>
-              </div>
-    </article>
-          </article>
+    {{/if}}
+    {{/each}}
+  </article>
   <footer class="Footer">
-    <div>&copy; 布鲁斯🐟的奇思乱想 2021</div>
+    <div>&copy; {{siteMeta.title}} 2021</div>
     <div>&centerdot;</div>
     <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
         rel="noopener noreferrer">Notablog</a>.
