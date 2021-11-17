@@ -2,44 +2,39 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-WV23EXEF9X');
-  </script>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
-  <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{post.title}}">
-  {{if(options.post.description.length > 0)}}
-  <meta name="description" content="{{post.descriptionPlain}}">
-  <meta property="og:description" content="{{post.descriptionPlain}}">
-  {{/if}}
-  <meta property="og:type" content="blog">
-  <title>{{post.title}}</title>
-  <!-- Favicon -->
-  {{if(options.siteMeta.icon)}}
-  <link rel="shortcut icon" href="{{siteMeta.icon}}">
-  {{/if}}
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
-  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
-  <link rel="stylesheet" type="text/css" href="css/notablog.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
-  <style>
-    :root {
-      font-size: 18px;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
 
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>不要往 AMQP 的 Header 乱塞东西&nbsp;|&nbsp;布鲁斯🐟的奇思乱想</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="不要往 AMQP 的 Header 乱塞东西">
+  
+    <meta name="description" content="内容过度封装，标题过于直白">
+    <meta property="og:description" content="内容过度封装，标题过于直白">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🚨&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
     .DateTagBar {
       margin-top: 1.0rem;
     }
@@ -48,62 +43,151 @@
 
 <body>
   <nav class="Navbar">
-    <a href="index.html">
-      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
-    </a>
-    <a href="tag/tech.html">
-      <div class="Navbar__Btn">♯<span>TECH</span></div>
-    </a>
-    {{each(options.siteMeta.pages)}}
-    {{if(@this.publish && @this.inMenu)}}
-    <span class="Navbar__Delim">&centerdot;</span>
-    <a href="{{@this.url}}">
-      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
-    </a>
-    {{/if}}
-    {{/each}}
-  </nav>
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="0316b907039e49eb86c087e28a94f00b.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🧱&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Projects</span>
+        </div>
+      </a>
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🤙&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
   <header class="Header">
-    {{if(options.post.cover)}}
-    <div class="Header__Cover">
-      <img src="{{post.cover}}">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
     </div>
-    {{/if}}
-    <div class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
-    </div>
-    {{if(options.post.icon)}}
-    <div class="Header__Icon">{{post.iconHTML}}</div>
-    {{/if}}
-    <h1 class="Header__Title">{{post.title}}</h1>
-    {{if(options.post.date || options.post.tags.length)}}
-    <div class="DateTagBar">
-      {{if(options.post.date)}}
-      <span class="DateTagBar__Item DateTagBar__Date">Posted on {{post.dateString}}</span>
-      {{/if}}
-      {{each(options.post.tags)}}
-      <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
-        <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
-      </span>
-      {{/each}}
-    </div>
-    {{/if}}
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🚨&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">不要往 AMQP 的 Header 乱塞东西</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Wed, Nov 17, 2021</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/python.html">python</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--purple">
+            <a href="tag/celery.html">celery</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--purple">
+            <a href="tag/amqp.html">amqp</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--pink">
+            <a href="tag/tcp.html">tcp</a>
+          </span>
+        
+      </div>
+    
   </header>
-  {{post.contentHTML}}
-
-  <div>
-    <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
-      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
-      </script>
-  </div>
-
+  <article id="https://www.notion.so/4747566399fc4dabb21296bbc212202b" class="PageRoot"><h2 id="https://www.notion.so/47cb9f1e261d4b5894662583d41d1594" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/47cb9f1e261d4b5894662583d41d1594"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">前情提要</span></span></h2><div id="https://www.notion.so/3c0aa696216345ccbcfb693374258d4d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">一直以来，我们在 Python 项目中的后台任务都是使用 celery 搭配 Redis(作为 broker)来完成，同时针对短任务轮询场景我们也</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/TencentBlueKing/bkpaas-python-sdk/tree/master/sdks/blue-krill/blue_krill/async_utils">做了一些封装</a></span><span class="SemanticString">。在项目运行的三~四年间，这套方案完美地承载了我们核心功能。</span></span></p></div><div id="https://www.notion.so/818e96e80bd94d1386800bedf85eab56" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">然而，就在不久前的一周，出现一些比较诡异的问题，总是有些后台任务发生阻塞，我们使用的多种异常观测手段（</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://sentry.io/">Sentry</a></span><span class="SemanticString">、日志等）都无法准确定位到具体问题（这或许是另一个故事），于是死马当活马医，我们决定将 Redis 更换为 RabbitMQ，这样能够更为准确地观测到任务具体执行的消息情况（例如是否及时Ack）。</span></span></p></div><h2 id="https://www.notion.so/9b9688d530f1473786531dd498aec3b3" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/9b9688d530f1473786531dd498aec3b3"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">案发现场</span></span></h2><div id="https://www.notion.so/3b8fd387bdcd4dbea69ba2db755d8e0d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">更换完 broker 之后，却发现了另一个奇怪的问题（没错，这才是本文的主角）。我们在某一些特殊资源的场景下，celery 任务会直接报错：</span></span></p></div><pre id="https://www.notion.so/a954e0ab701c43978a33bdd5b6c8acf3" class="Code Code--NoWrap"><code><span class="SemanticStringArray"><span class="SemanticString"><span>ConnectionResetError<span class="token punctuation">:</span> <span class="token punctuation">[</span>Errno <span class="token number">104</span><span class="token punctuation">]</span> Connection reset by peer
+  File <span class="token string">"kombu/connection.py"</span><span class="token punctuation">,</span> line <span class="token number">414</span><span class="token punctuation">,</span> <span class="token keyword">in</span> _reraise_as_library_errors
+    <span class="token keyword">yield</span>
+  File <span class="token string">"kombu/connection.py"</span><span class="token punctuation">,</span> line <span class="token number">494</span><span class="token punctuation">,</span> <span class="token keyword">in</span> _ensured
+    <span class="token keyword">return</span> fun<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+  File <span class="token string">"kombu/messaging.py"</span><span class="token punctuation">,</span> line <span class="token number">203</span><span class="token punctuation">,</span> <span class="token keyword">in</span> _publish
+    mandatory<span class="token operator">=</span>mandatory<span class="token punctuation">,</span> immediate<span class="token operator">=</span>immediate<span class="token punctuation">,</span>
+  File <span class="token string">"amqp/channel.py"</span><span class="token punctuation">,</span> line <span class="token number">1766</span><span class="token punctuation">,</span> <span class="token keyword">in</span> _basic_publish
+    <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> exchange<span class="token punctuation">,</span> routing_key<span class="token punctuation">,</span> mandatory<span class="token punctuation">,</span> immediate<span class="token punctuation">)</span><span class="token punctuation">,</span> msg
+  File <span class="token string">"amqp/abstract_channel.py"</span><span class="token punctuation">,</span> line <span class="token number">59</span><span class="token punctuation">,</span> <span class="token keyword">in</span> send_method
+    conn<span class="token punctuation">.</span>frame_writer<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>channel_id<span class="token punctuation">,</span> sig<span class="token punctuation">,</span> args<span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+  File <span class="token string">"amqp/method_framing.py"</span><span class="token punctuation">,</span> line <span class="token number">154</span><span class="token punctuation">,</span> <span class="token keyword">in</span> write_frame
+    <span class="token number">2</span><span class="token punctuation">,</span> channel<span class="token punctuation">,</span> framelen<span class="token punctuation">,</span> frame<span class="token punctuation">,</span> <span class="token number">0xce</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  File <span class="token string">"amqp/transport.py"</span><span class="token punctuation">,</span> line <span class="token number">305</span><span class="token punctuation">,</span> <span class="token keyword">in</span> write
+    self<span class="token punctuation">.</span>_write<span class="token punctuation">(</span>s<span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/492e4057b6694256962670188e820806" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">由于我们使用了一层 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://cloud.tencent.com/product/clb">CLB</a></span><span class="SemanticString"> 作为高可用代理，而之前的使用经验中，CLB 可能会有一些长时间无数据断连的情况，所以我们暂时认为可能是某些长时间的阻塞任务会导致 CLB 主动断开，为了排除干扰，我们甩开了 CLB，直接采用 MQ 的多个节点作为地址直连。</span></span></p></div><div id="https://www.notion.so/f2c09f05b09c48b4a43bed880df63f92" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">然而，问题依旧，一时间又没了头绪，我开始漫无目的重新浏览 Sentry 中的错误堆栈以及相关变量。</span></span></p></div><h2 id="https://www.notion.so/84b6265e8fc5450c8cbb7bf2777ab996" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/84b6265e8fc5450c8cbb7bf2777ab996"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">蛛丝马迹</span></span></h2><div id="https://www.notion.so/36b504203564410e976101c0f02a4085" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">无意间，发现在代码中，我们尝试向队列中存储一大段 pickle 过的对象数据，而这些变量在 Sentry 中已经长到无法完整显示而被省略了。</span></span></p></div><pre id="https://www.notion.so/9b2c4caf8622467593dc596137c5b627" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+any_task<span class="token punctuation">.</span>apply_async<span class="token punctuation">(</span>headers<span class="token operator">=</span>something_big<span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></span></span></span></code></pre><div id="https://www.notion.so/3ff159c3d15f47d692bbbc84558584ef" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这个问题立马引起了我们的注意🤔，很有可能是这个数据过大而引起写入异常。</span></span></p></div><h2 id="https://www.notion.so/cdf4e94974234d39b17490c1007821fe" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/cdf4e94974234d39b17490c1007821fe"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">破案</span></span></h2><div id="https://www.notion.so/bcd4b93878464e509a7938b938a83ce3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">照此思路，经过一番网络冲浪，发现了类似的问题：</span></span></p></div><div id="https://www.notion.so/124a8900aa364777a507f008b1d88005" class="Bookmark"><a href="https://stackoverflow.com/questions/30716002/is-there-a-size-limit-on-a-rabbitmq-message-header"><p class="Bookmark__Link">https://stackoverflow.com/questions/30716002/is-there-a-size-limit-on-a-rabbitmq-message-header</p></a></div><div id="https://www.notion.so/845cd6a1ad2b47118ca17cfbc273d9ca" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这时候，再去反查 RabbitMQ 的日志，果然有对应内容：</span></span></p></div><pre id="https://www.notion.so/d33033652f914e748eed2d655646939f" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGray"><span>2021-11-16 19:49:32.098</span></mark></span><span class="SemanticString"><span> [</span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorRed"><span>error</span></mark></span><span class="SemanticString"><span>] &lt;0.3894.1636&gt; </span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorPink"><span>Error on AMQP connection &lt;0.3894.1636&gt; (x.x.x.x:59823 -&gt; x.x.x.x:5672, vhost: &#x27;foo&#x27;, user: &#x27;foo&#x27;, state: running), channel 1:
+ operation none caused a connection exception frame_error: &quot;type 2, all octets = &lt;&lt;&gt;&gt;: {</span></mark></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorYellow"><span>frame_too_large</span></mark></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorPink"><span>,245629,131064}&quot;
+</span></mark></span><span class="SemanticString"><span>
+</span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGray"><span>2021-11-16 19:49:35.099</span></mark></span><span class="SemanticString"><span> [</span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorRed"><span>error</span></mark></span><span class="SemanticString"><span>] &lt;0.3894.1636&gt; </span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorPink"><span>closing AMQP connection &lt;0.3894.1636&gt; (x.x.x.x:59823 -&gt; x.x.x.x:5672):
+</span></mark></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorYellow"><span>fatal_frame_error</span></mark></span></span></code></pre><div id="https://www.notion.so/af8a5b9adda245b48c1ae1e63ce0beda" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这里非常明确地指出了，由于我们传递的 frame 大小(</span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorPink">245629 bytes</mark></span><span class="SemanticString">) 大于默认的 </span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGreen">131064 + 8(frame header) bytes (128KB)</mark></span><span class="SemanticString">，所以 RabbitMQ 关闭了连接。</span></span></p></div><div id="https://www.notion.so/4a0281e341954319871cd64c16f75da5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">于是我们立即着手，精简了向 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">headers</code></span><span class="SemanticString"> 传送的数据，重新发布后，终于一切归于正常。</span></span></p></div><h2 id="https://www.notion.so/7db6a99675b54eb9a1e521156d8a8efb" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/7db6a99675b54eb9a1e521156d8a8efb"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">梳理</span></span></h2><div id="https://www.notion.so/a98a987301c74bfe97b5c15f31ac5631" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">虽然问题已经得到了解决，但是仍旧需要补齐一下相关知识的短板。</span></span></p></div><div id="https://www.notion.so/cfc4d165ce5843398fd8b2fc41006cde" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">首先，让我们再来简单看看</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold"> AMQP </strong></span><span class="SemanticString"> </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">0.9.1 版本</a></span><span class="SemanticString"> </span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">协议有关这部分的内容</strong></span><span class="SemanticString">。</span></span></p></div><h3 id="https://www.notion.so/86cc8022d8dd47a4b88d53d963f42d83" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/86cc8022d8dd47a4b88d53d963f42d83"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">AMQP 协议</span></span></h3><div id="https://www.notion.so/a8d19ae7748e4dc1a5061749d4e2fcca" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这是协议中所有 TCP/IP 帧组成</span></span></p></div><pre id="https://www.notion.so/ba3ca24110d24ba690a63f02a171a2fe" class="Code Code--NoWrap"><code><span class="SemanticStringArray"><span class="SemanticString"><span>0      1         3         7                 </span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGreen"><span>size</span></mark></span><span class="SemanticString"><span>+7 </span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGreen"><span>size</span></mark></span><span class="SemanticString"><span>+8
++------+---------+---------+ +-------------+ +-----------+
+| type | channel |   size  | |   payload   | | frame-end |
++------+---------+---------+ +-------------+ +-----------+
+ octet    short      long      &#x27;</span></span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGreen"><span>size</span></mark></span><span class="SemanticString"><span>&#x27; octets     octet</span></span></span></code></pre><div id="https://www.notion.so/676600f869f84f59b4e64084cec7f511" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">其中有这么几个关键信息：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/2f09203f74b748f3be10cabdb20c0db0" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">0-7 bytes 确定了帧的类型和具体的 channel，确定了类型后将会处理 payload</span></span></li><li id="https://www.notion.so/d3a594aa61984fa99404f8cd8ca4a8e9" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">payload 的大小在协议中并没有规定，而是说的是可以通过客户端和服务端的”协商“确定(page 22)</span></span></li><li id="https://www.notion.so/52493bc4e6f840a1b082ad59c0de9f38" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">不同类型帧有着不同的 payload 构成</span></span></li></ul><div id="https://www.notion.so/b8f09d7fc80a418e93f8725e8a5646c5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">当前问题主要是传递应用数据的场景下，所以我们来看具体承载的 Content 帧</span></span></p></div><div id="https://www.notion.so/0a81baaf5dcc43b7993615955f6037e8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">简单点来说，Content 帧就是一系列的 properties 加上二进制的数据部分。这些 properties 将会组成 &quot;content header frame&quot;，它大概是这样的组成：</span></span></p></div><pre id="https://www.notion.so/e83442dd55e84d0e9a4e35cb4059cc4e" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>0          2        4           12               14
++----------+--------+-----------+----------------+------------- - -
+| class-id | weight | body size | property flags | property list...
++----------+--------+-----------+----------------+------------- - -
+    short    short    long long        short        remainder...</span></span></span></code></pre><div id="https://www.notion.so/595f1ce4948644bdbb91f4d1b72790c6" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">也就是在我们的 celery 代码中， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">headers=(...)</code></span><span class="SemanticString"> 传递的内容将会被塞入 property list 中，在协议中并没有明确具体的大小限制，同时没有表明会做的分块(content body 部分是会的)，所以当前产生的问题限制，主要受制于 RabbitMQ 的具体实现。</span></span></p></div><div id="https://www.notion.so/388e445a0fc04f07a54b5680417c3d5a" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F13faba46-c644-41e9-80b1-cdb3fb4659ad%2FUntitled.png?width=2372&amp;table=block&amp;id=388e445a-0fc0-4f07-a54b-5680417c3d5a"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F13faba46-c644-41e9-80b1-cdb3fb4659ad%2FUntitled.png?width=2372&amp;table=block&amp;id=388e445a-0fc0-4f07-a54b-5680417c3d5a" style="width:100%"/></a><figcaption><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://blog.rabbitmq.com/posts/2012/11/breaking-things-with-rabbitmq-3-0/">https://blog.rabbitmq.com/posts/2012/11/breaking-things-with-rabbitmq-3-0/</a></span></span></figcaption></figure></div><h2 id="https://www.notion.so/93ac0ca987774403ac254778cdd65f93" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/93ac0ca987774403ac254778cdd65f93"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">三点感悟</span></span></h2><ul class="BulletedListWrapper"><li id="https://www.notion.so/420325f93e0e4c77a778ab83f866c9ab" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">错误监测非常重要</strong></span><span class="SemanticString">。如果没有 Sentry，问题的定位可能会更加困难，多耗几天精力也未可知。</span></span></li><li id="https://www.notion.so/f8a64554888c4561801cb475ed56888e" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">要善于利用不同组件的优势</strong></span><span class="SemanticString">。之所以一开始使用 Redis 而不是 RabbitMQ，更多是从运营维护的角度出发，在公司内部 Redis 有更完善的基建基础。但是碰到这类幽灵般的问题，需要 RabbitMQ 这类流程更完整的组件才能更容易暴露问题。</span></span></li><li id="https://www.notion.so/f0036dfe45914b8b92ec7b40c0fcfe5a" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">要适当地了解重点依赖的技术细节</strong></span><span class="SemanticString">。大多数场景下，简单地使用协议就足够了，而在一些边缘场景中，则更看重技术人员对细节的把控。这类属于重要不紧急的事情，应该定时拿出来有意识去做，虽无近用，却有远益。</span></span></li></ul><div id="https://www.notion.so/052ca29f83ba4a5987af85f7e1dfe9fa" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/fac815e796804a29abeadedbee1bbb2e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">参考：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/936cf8c56f2243d794d9cac0e09a843d" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf">https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf</a></span></span></li><li id="https://www.notion.so/6abf66b219ed4e0fa7c31293b377d5e9" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://john.eckersberg.com/debugging-rabbitmq-frame_too_large-error.html">https://john.eckersberg.com/debugging-rabbitmq-frame_too_large-error.html</a></span></span></li><li id="https://www.notion.so/85809243e019434b995acd58e4c83dc7" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/30716002/is-there-a-size-limit-on-a-rabbitmq-message-header">https://stackoverflow.com/questions/30716002/is-there-a-size-limit-on-a-rabbitmq-message-header</a></span></span></li><li id="https://www.notion.so/d33435f0e11f432daa63676c3d94db4c" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.rabbitmq.com/amqp-0-9-1-errata.html#section_11">https://www.rabbitmq.com/amqp-0-9-1-errata.html#section_11</a></span></span></li></ul><div id="https://www.notion.so/9470c222e7464529b4fdd20a8691ddfe" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <footer class="Footer">
-    <div>&copy; {{siteMeta.title}} 2021</div>
-    <div>&centerdot;</div>
-    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-        rel="noopener noreferrer">Notablog</a>.
-    </div>
-  </footer>
+  <div>&copy; 布鲁斯🐟的奇思乱想 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
 </body>
 
 </html>

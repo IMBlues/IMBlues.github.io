@@ -2,44 +2,34 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-WV23EXEF9X');
-  </script>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
-  <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{post.title}}">
-  {{if(options.post.description.length > 0)}}
-  <meta name="description" content="{{post.descriptionPlain}}">
-  <meta property="og:description" content="{{post.descriptionPlain}}">
-  {{/if}}
-  <meta property="og:type" content="blog">
-  <title>{{post.title}}</title>
-  <!-- Favicon -->
-  {{if(options.siteMeta.icon)}}
-  <link rel="shortcut icon" href="{{siteMeta.icon}}">
-  {{/if}}
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
-  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
-  <link rel="stylesheet" type="text/css" href="css/notablog.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
-  <style>
-    :root {
-      font-size: 18px;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
 
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>善用 pytest fixture factory 构建结构优秀的单元测试&nbsp;|&nbsp;布鲁斯🐟的奇思乱想</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="善用 pytest fixture factory 构建结构优秀的单元测试">
+  
+  
+  <style>
     .DateTagBar {
       margin-top: 1.0rem;
     }
@@ -48,62 +38,176 @@
 
 <body>
   <nav class="Navbar">
-    <a href="index.html">
-      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
-    </a>
-    <a href="tag/tech.html">
-      <div class="Navbar__Btn">♯<span>TECH</span></div>
-    </a>
-    {{each(options.siteMeta.pages)}}
-    {{if(@this.publish && @this.inMenu)}}
-    <span class="Navbar__Delim">&centerdot;</span>
-    <a href="{{@this.url}}">
-      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
-    </a>
-    {{/if}}
-    {{/each}}
-  </nav>
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="0316b907039e49eb86c087e28a94f00b.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🧱&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Projects</span>
+        </div>
+      </a>
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🤙&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
   <header class="Header">
-    {{if(options.post.cover)}}
-    <div class="Header__Cover">
-      <img src="{{post.cover}}">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
     </div>
-    {{/if}}
-    <div class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
-    </div>
-    {{if(options.post.icon)}}
-    <div class="Header__Icon">{{post.iconHTML}}</div>
-    {{/if}}
-    <h1 class="Header__Title">{{post.title}}</h1>
-    {{if(options.post.date || options.post.tags.length)}}
-    <div class="DateTagBar">
-      {{if(options.post.date)}}
-      <span class="DateTagBar__Item DateTagBar__Date">Posted on {{post.dateString}}</span>
-      {{/if}}
-      {{each(options.post.tags)}}
-      <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
-        <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
-      </span>
-      {{/each}}
-    </div>
-    {{/if}}
+    
+    <h1 class="Header__Title">善用 pytest fixture factory 构建结构优秀的单元测试</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Wed, Jan 6, 2021</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/python.html">python</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--yellow">
+            <a href="tag/pytest.html">pytest</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
+            <a href="tag/unittest.html">unittest</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+            <a href="tag/best-practice.html">best-practice</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+      </div>
+    
   </header>
-  {{post.contentHTML}}
+  <article id="https://www.notion.so/430c6deaad2d4bf28df77223b5c4c895" class="PageRoot"><h2 id="https://www.notion.so/8b031f36109c4ab49fd6399d2562d6dc" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/8b031f36109c4ab49fd6399d2562d6dc"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Why pytest ？</span></span></h2><div id="https://www.notion.so/48117fd13ee148dd9344585b4a4a5070" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">评价单元测试是否优秀，分支覆盖率是非常重要的指标，而覆盖率的决定因素除了开发自身的素质以外，足够低的用例构建成本也是必不可少。</span></span></p></div><div id="https://www.notion.so/3505efe672544cfb89426c776749ad94" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/cae408b7c0d34b159df43803cf5920e5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">对于 Python 应用，当项目逻辑复杂度较高时，单纯使用原生的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">unittest</code></span><span class="SemanticString"> 或者是 Django 提供的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">TestCase</code></span><span class="SemanticString"> 都会遇到一个恼人的问题：测试代码大部分工作在构建各种用例。幸好有 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pytest</code></span><span class="SemanticString"> 提供的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 机制，可以较好的解决这个问题。</span></span></p></div><div id="https://www.notion.so/58cec4f941414d64922baf944b045d3f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/154af0bdf2b04468aea537ee09c04ba1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">本文简单阐述个人的 pytest 使用实践，而关于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 到底好在哪里或者具体使用方法，已经有比较多的文章做了更详细的介绍，我这里就不再赘述：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/8e5f85d7d2604c418aa7603b54040583" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://blog.daftcode.pl/the-cleaning-hand-of-pytest-28f434f4b684">https://blog.daftcode.pl/the-cleaning-hand-of-pytest-28f434f4b684</a></span></span></li><li id="https://www.notion.so/e9280e219cce4fb0817586fc25d68780" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://salmonmode.github.io/2019/03/29/building-good-tests.html#dont-inherit-from-unittesttestcase-in-test-classes-either-directly-or-indirectly">https://salmonmode.github.io/2019/03/29/building-good-tests.html#dont-inherit-from-unittesttestcase-in-test-classes-either-directly-or-indirectly</a></span></span></li></ul><div id="https://www.notion.so/e82ea1bf91954fdca8f048630122f3cd" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/04b0c76dfe7b4586a96d147dcfd0212f" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/04b0c76dfe7b4586a96d147dcfd0212f"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">理想的单元测试</span></span></h2><div id="https://www.notion.so/b7dda6d8f6a745af93ebb25d338bb8ce" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">从理论来讲，对于一个测试项，我们应该只需关心测试内容的输入和输出（或异常），并且最好能够放到一起管理维护，更形象地说，应该是下面这种伪代码的感觉</span></span></p></div><pre id="https://www.notion.so/1c763cff293a49f8999869ab71c0bc90" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span>
+<span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期异常<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">test_some_content</span><span class="token punctuation">(</span>输入<span class="token punctuation">,</span> 预期输出<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> 正常<span class="token punctuation">:</span>
+		<span class="token keyword">assert</span> some_process<span class="token punctuation">(</span>输入<span class="token punctuation">)</span> <span class="token operator">==</span> 预期输出
+	<span class="token keyword">else</span><span class="token punctuation">:</span>
+		<span class="token keyword">with</span> should_raise<span class="token punctuation">(</span>预期异常<span class="token punctuation">)</span><span class="token punctuation">:</span>
+			some_process<span class="token punctuation">(</span>输入<span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/6506fa5004b94f1b8626aaf996bc36f8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/767ba13d076247dc81d0867ab5f99989" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">一个普通的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pytest</code></span><span class="SemanticString"> 使用用例：</span></span></p></div><pre id="https://www.notion.so/5bce80dfd9674f46b18f4a11407bbfd3" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>fixture</span>
+<span class="token keyword">def</span> <span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> User<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"Chris"</span><span class="token punctuation">,</span> hair_color<span class="token operator">=</span>Color<span class="token punctuation">(</span><span class="token string">"brown"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-  <div>
-    <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
-      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
-      </script>
-  </div>
+<span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>fixture</span><span class="token punctuation">(</span>autouse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">set_user</span><span class="token punctuation">(</span>client<span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    client<span class="token punctuation">.</span>set_user<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
 
+<span class="token keyword">def</span> <span class="token function">test_set_user</span><span class="token punctuation">(</span>client<span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># client.get_user() returns another User object</span>
+    <span class="token keyword">assert</span> client<span class="token punctuation">.</span>get_user<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> user</span></span></span></code></pre><div id="https://www.notion.so/93981514511046fd88945ff54da727fe" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">可以看出 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pytest.fixture</code></span><span class="SemanticString"> 固然能够足够强大，但是并不能完全解决问题：因为 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture</code></span><span class="SemanticString"> 在这里的用法是 </span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">静态 </strong></span><span class="SemanticString">的，而对于我们理想的状态，用例中的输入输出，都应该是动态指定的。</span></span></p></div><div id="https://www.notion.so/cb5e4153a33a45018869f2bb11e33dc8" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/b163cef902c14e22be901bced1e55a59" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/b163cef902c14e22be901bced1e55a59"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">一个简单的实践</span></span></h2><div id="https://www.notion.so/26219c27c94a450e8c2904fb2348f26e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">所以，我们需要利用 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.pytest.org/en/stable/fixture.html#factories-as-fixtures"><code class="SemanticString__Fragment SemanticString__Fragment--Code">fixture factory</code></a></span><span class="SemanticString"> 来实现</span></span></p></div><pre id="https://www.notion.so/71d32711c465401cb17ac3c5aa4fa825" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># fixture 依旧保留了复用性</span>
+<span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>fixture</span>
+<span class="token keyword">def</span> <span class="token function">make_fake_resp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">_make_fake_resp</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">_wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token builtin">input</span><span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> _wrapper
+
+    <span class="token keyword">return</span> _make_fake_resp
+
+<span class="token keyword">class</span> <span class="token class-name">TestUtils</span><span class="token punctuation">:</span>
+    <span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>parametrize</span><span class="token punctuation">(</span>
+        <span class="token string">"input, expected"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span>
+            <span class="token comment"># 正常情况</span>
+            <span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token string">"xyz"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+						<span class="token comment"># 异常情况，当然也可以多拆分一个测试项</span>
+            <span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> ValueError<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">test_some_content</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token builtin">input</span><span class="token punctuation">,</span> expected<span class="token punctuation">,</span> make_fake_resp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""测试某些内容"""</span>
+
+        <span class="token keyword">with</span> mock<span class="token punctuation">.</span>patch<span class="token punctuation">(</span><span class="token string">'some-need-patching-refrences'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> _patch<span class="token punctuation">:</span>
+						<span class="token comment"># 利用 fixture factory 动态生成测试用例</span>
+            _patch<span class="token punctuation">.</span>side_effect <span class="token operator">=</span> make_fake_resp<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">if</span> <span class="token builtin">type</span><span class="token punctuation">(</span>expected<span class="token punctuation">)</span> <span class="token keyword">is</span> <span class="token builtin">type</span> <span class="token keyword">and</span> <span class="token builtin">issubclass</span><span class="token punctuation">(</span>expected<span class="token punctuation">,</span> Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">with</span> pytest<span class="token punctuation">.</span>raises<span class="token punctuation">(</span>expected<span class="token punctuation">)</span><span class="token punctuation">:</span>
+										<span class="token comment"># 主体测试逻辑</span>
+                    call_test<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+								<span class="token comment"># 主体测试逻辑</span>
+                <span class="token keyword">assert</span> call_test<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span> <span class="token operator">==</span> expected</span></span></span></code></pre><div id="https://www.notion.so/2d939f8eedec419c8dc722869f89759c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这样一来，只要我在一开始构建好相关的工厂函数，添加更多的测试用例就只需在 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">parametrize</code></span><span class="SemanticString"> 中不断添加即可，开发注意力成功从重复的工具构建转移到了真实用例。</span></span></p></div><div id="https://www.notion.so/549dc40e114d4bc88d4f09a865e4d2de" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <footer class="Footer">
-    <div>&copy; {{siteMeta.title}} 2021</div>
-    <div>&centerdot;</div>
-    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-        rel="noopener noreferrer">Notablog</a>.
-    </div>
-  </footer>
+  <div>&copy; 布鲁斯🐟的奇思乱想 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
 </body>
 
 </html>

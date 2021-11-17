@@ -2,44 +2,37 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-WV23EXEF9X');
-  </script>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
-  <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{post.title}}">
-  {{if(options.post.description.length > 0)}}
-  <meta name="description" content="{{post.descriptionPlain}}">
-  <meta property="og:description" content="{{post.descriptionPlain}}">
-  {{/if}}
-  <meta property="og:type" content="blog">
-  <title>{{post.title}}</title>
-  <!-- Favicon -->
-  {{if(options.siteMeta.icon)}}
-  <link rel="shortcut icon" href="{{siteMeta.icon}}">
-  {{/if}}
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
-  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
-  <link rel="stylesheet" type="text/css" href="css/notablog.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
-  <style>
-    :root {
-      font-size: 18px;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
 
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>使用 pyproject.toml 管理你的 Python 项目&nbsp;|&nbsp;布鲁斯🐟的奇思乱想</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="使用 pyproject.toml 管理你的 Python 项目">
+  
+    <meta name="description" content="就差 mypy 了，求龟叔可怜一下强迫症患者">
+    <meta property="og:description" content="就差 mypy 了，求龟叔可怜一下强迫症患者">
+  
+  
+  <style>
     .DateTagBar {
       margin-top: 1.0rem;
     }
@@ -48,62 +41,115 @@
 
 <body>
   <nav class="Navbar">
-    <a href="index.html">
-      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
-    </a>
-    <a href="tag/tech.html">
-      <div class="Navbar__Btn">♯<span>TECH</span></div>
-    </a>
-    {{each(options.siteMeta.pages)}}
-    {{if(@this.publish && @this.inMenu)}}
-    <span class="Navbar__Delim">&centerdot;</span>
-    <a href="{{@this.url}}">
-      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
-    </a>
-    {{/if}}
-    {{/each}}
-  </nav>
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="0316b907039e49eb86c087e28a94f00b.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🧱&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Projects</span>
+        </div>
+      </a>
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🤙&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
   <header class="Header">
-    {{if(options.post.cover)}}
-    <div class="Header__Cover">
-      <img src="{{post.cover}}">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
     </div>
-    {{/if}}
-    <div class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
-    </div>
-    {{if(options.post.icon)}}
-    <div class="Header__Icon">{{post.iconHTML}}</div>
-    {{/if}}
-    <h1 class="Header__Title">{{post.title}}</h1>
-    {{if(options.post.date || options.post.tags.length)}}
-    <div class="DateTagBar">
-      {{if(options.post.date)}}
-      <span class="DateTagBar__Item DateTagBar__Date">Posted on {{post.dateString}}</span>
-      {{/if}}
-      {{each(options.post.tags)}}
-      <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
-        <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
-      </span>
-      {{/each}}
-    </div>
-    {{/if}}
+    
+    <h1 class="Header__Title">使用 pyproject.toml 管理你的 Python 项目</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Mon, Nov 30, 2020</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/python.html">python</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--red">
+            <a href="tag/pep.html">pep</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+      </div>
+    
   </header>
-  {{post.contentHTML}}
-
-  <div>
-    <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
-      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
-      </script>
-  </div>
-
+  <article id="https://www.notion.so/cd4083ced48e4cc6928210ca4ac23d18" class="PageRoot"><blockquote id="https://www.notion.so/baca36c0dbae49349a522a0d21096f0d" class="ColorfulBlock ColorfulBlock--ColorGray Quote"><span class="SemanticStringArray"><span class="SemanticString">Simple better than complex</span></span></blockquote><div id="https://www.notion.so/4e343e3289f1408f88a51dff13dec14a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><ul id="https://www.notion.so/e7516896d7464f9f93023cca38e8cff7" class="ColorfulBlock ColorfulBlock--ColorGray TableOfContents"><li class="TableOfContents__Item"><a href="#https://www.notion.so/a64a07975d114795915c9b437c086726"><div style="margin-left:0px"><span class="SemanticStringArray"><span class="SemanticString">Why </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pyproject.toml</code></span><span class="SemanticString"> ?</span></span></div></a></li><li class="TableOfContents__Item"><a href="#https://www.notion.so/8ae45a71bf6b412198f22f8c3a4ad6f3"><div style="margin-left:0px"><span class="SemanticStringArray"><span class="SemanticString">Why toml ?</span></span></div></a></li><li class="TableOfContents__Item"><a href="#https://www.notion.so/62e56c621d6d4205b32442ceb4f6c64f"><div style="margin-left:0px"><span class="SemanticStringArray"><span class="SemanticString">主流工具支持</span></span></div></a></li><li class="TableOfContents__Item"><a href="#https://www.notion.so/310e1d2294f74dab8e4ff6467abff6f7"><div style="margin-left:24px"><span class="SemanticStringArray"><span class="SemanticString">好孩子</span></span></div></a></li><li class="TableOfContents__Item"><a href="#https://www.notion.so/764cbf56a28247c6982f99fe6ea09b65"><div style="margin-left:24px"><span class="SemanticStringArray"><span class="SemanticString">坏孩子</span></span></div></a></li><li class="TableOfContents__Item"><a href="#https://www.notion.so/57339b5801464b07bff7e548f44e826d"><div style="margin-left:48px"><span class="SemanticStringArray"><span class="SemanticString">flake8</span></span></div></a></li><li class="TableOfContents__Item"><a href="#https://www.notion.so/0f3c3f3d06914399a4e05ed163477bba"><div style="margin-left:48px"><span class="SemanticStringArray"><span class="SemanticString">mypy</span></span></div></a></li></ul><h1 id="https://www.notion.so/a64a07975d114795915c9b437c086726" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--1"><a class="Anchor" href="#https://www.notion.so/a64a07975d114795915c9b437c086726"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Why </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pyproject.toml</code></span><span class="SemanticString"> ?</span></span></h1><div id="https://www.notion.so/c515de3e4e08457fb2f6ff2a8989b5ae" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/0cce30a9689b484aaef7c59756a7b881" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">如果你还没有听说过 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pyproject.toml</code></span><span class="SemanticString"> ，那么请看一眼最近主力开发的 Python 项目根目录，我想它大概是长这样的</span></span></p></div><div id="https://www.notion.so/e0a58818d9d84453bbf78d610c45ac67" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9aa258cc-7ea8-4286-bb18-6e2fae08bd02%2FUntitled.png?width=294&amp;table=block&amp;id=e0a58818-d9d8-4453-bbf7-8d610c45ac67"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9aa258cc-7ea8-4286-bb18-6e2fae08bd02%2FUntitled.png?width=294&amp;table=block&amp;id=e0a58818-d9d8-4453-bbf7-8d610c45ac67" style="width:294px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/314baa3fbdb14a028a8c5c9425d0b34d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">一眼看上去全是配置文件就一个感觉 —— 杂乱。</span></span></p></div><div id="https://www.notion.so/4bc01fdc433e49998c7ccca15547c35d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">杂乱带来的最大坏处：管理困难 —— 各种配置的文件类型、配置语法并不统一，对任何刚接入项目的人都有较高学习成本。</span></span></p></div><div id="https://www.notion.so/d8d97a1aa53142f38cd4184a6fa2fc8c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">所以，类似 NodeJS 的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">package.json</code></span><span class="SemanticString"> ，Python 世界的统一项目配置文件 —— </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pyproject.toml</code></span><span class="SemanticString"> 就显得异常重要了。</span></span></p></div><h1 id="https://www.notion.so/8ae45a71bf6b412198f22f8c3a4ad6f3" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--1"><a class="Anchor" href="#https://www.notion.so/8ae45a71bf6b412198f22f8c3a4ad6f3"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Why toml ?</span></span></h1><div id="https://www.notion.so/e959c8fc4bc74929962a02e22c163dcd" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">一个比较大的疑问，为什么要选择用 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">toml</code></span><span class="SemanticString"> 这种使用面并不算广泛的文件格式？</span></span></p></div><div id="https://www.notion.so/4c2b3b9e91874dac90bbcb61aa9ab31f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">由于长期浸淫在 k8s 里，我第一反应觉得是 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">yaml</code></span><span class="SemanticString"> 更合适，毕竟表达能力更强。但待我仔细阅读了 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.python.org/dev/peps/pep-0518/#yaml">PEP</a></span><span class="SemanticString"> 里的相关比较，发现 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">toml</code></span><span class="SemanticString"> 的选型反而是正确的。</span></span></p></div><div id="https://www.notion.so/34c782630afd46629e00479bcc53723d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/5e2e1c5de2cb4371a8ffef5909d92475" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">首先，要搞清楚 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pyproject.toml</code></span><span class="SemanticString"> 的使用场景，它是配置的集合，而不是业务逻辑对象，过于复杂的配置反而不利于其发展，毕竟工具配置都是开发的“边角料时间”处理的，不能有太复杂的理解门槛。</span></span></p></div><div id="https://www.notion.so/6d575f9c809d4039a14d0533a6d14e69" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/31cada40207d41428c6a748dba8c6bc5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">PEP 里阐述的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">yaml</code></span><span class="SemanticString"> 作为项目配置文件的缺点：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/f0728820da554419b20a485934481d1e" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">过于复杂灵活，可能会导致不同解析器不能互相解析</span></span></li><li id="https://www.notion.so/21f3a5aef17f427ebf36479564cd3b73" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">本身不够安全，而能解决该问题的 PyYAML 依赖过重</span></span></li></ul><h1 id="https://www.notion.so/62e56c621d6d4205b32442ceb4f6c64f" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--1"><a class="Anchor" href="#https://www.notion.so/62e56c621d6d4205b32442ceb4f6c64f"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">主流工具支持</span></span></h1><div id="https://www.notion.so/cf7046bd7ce8409ab509f146c58d9b3f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/310e1d2294f74dab8e4ff6467abff6f7" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/310e1d2294f74dab8e4ff6467abff6f7"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">好孩子</span></span></h2><div id="https://www.notion.so/f49030ef608a47b6b757455daca3f9dd" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/670d452318954cd6aa7c2d87124f1419" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">详见：</span></span></p></div><div id="https://www.notion.so/2e7e69e6c178435e8200ae12aa1c78ce" class="Bookmark"><a href="https://github.com/carlosperate/awesome-pyproject"><h5 class="Bookmark__Title">carlosperate/awesome-pyproject</h5><p class="Bookmark__Desc">An Awesome List of projects using the pyproject.toml Python configuration file. - carlosperate/awesome-pyproject</p><p class="Bookmark__Link">https://github.com/carlosperate/awesome-pyproject</p></a></div><div id="https://www.notion.so/d0edeafb016446e18893ab03b77d3a77" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/764cbf56a28247c6982f99fe6ea09b65" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/764cbf56a28247c6982f99fe6ea09b65"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">坏孩子</span></span></h2><div id="https://www.notion.so/27164c7ff9314de0b1ac78e43f454cd6" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h3 id="https://www.notion.so/57339b5801464b07bff7e548f44e826d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/57339b5801464b07bff7e548f44e826d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">flake8</span></span></h3><div id="https://www.notion.so/c756f298820c42e8a932f6fb04b62e6b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">作者</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://gitlab.com/pycqa/flake8/-/issues/428">不愿意支持</a></span><span class="SemanticString">，看起来是强迫症不够强烈</span></span></p></div><div id="https://www.notion.so/6f141837841145ad9ef95c4ef77ed214" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/2e1e35e87b8049b8beaaada4cbcceaee" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/e4f8bcfc763a4e5e998ea61095a51894" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe03462b6-b5de-44b8-9213-2366b789e326%2FUntitled.png?width=958&amp;table=block&amp;id=e4f8bcfc-763a-4e5e-998e-a61095a51894"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe03462b6-b5de-44b8-9213-2366b789e326%2FUntitled.png?width=958&amp;table=block&amp;id=e4f8bcfc-763a-4e5e-998e-a61095a51894" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/34012fcf900b499182c8ab60fd872e2a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/28e27aa693a84f8290f6a5ab4341892c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">好在，还是有其他强迫着患者存在，外挂实现了 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://gitlab.com/retnikt/flake9"><code class="SemanticString__Fragment SemanticString__Fragment--Code">flake9</code></a></span><span class="SemanticString"> ，专门支持了 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">pyproject.toml</code></span><span class="SemanticString">。</span></span></p></div><h3 id="https://www.notion.so/0f3c3f3d06914399a4e05ed163477bba" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/0f3c3f3d06914399a4e05ed163477bba"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">mypy</span></span></h3><div id="https://www.notion.so/541f5264d94a48d5ac5471c7c15f267d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/38bb460340b14567917b66d94300a922" class="Image Image--PageWidth"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9767a6eb-6513-4790-900d-9e94ad22df92%2FUntitled.png?width=933&amp;table=block&amp;id=38bb4603-40b1-4567-917b-66d94300a922"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9767a6eb-6513-4790-900d-9e94ad22df92%2FUntitled.png?width=933&amp;table=block&amp;id=38bb4603-40b1-4567-917b-66d94300a922" style="width:100%"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/11ba35142de145d2be3d91b6436d6648" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/bb6d067e85f14efa83f48dd20bf38662" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">”仁慈的独裁者“并不支持，所以目前只能留着 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">mypy.ini</code></span><span class="SemanticString"> 这一根独苗了。</span></span></p></div><div id="https://www.notion.so/f056972ff65d452d8e43d3ab387e1c65" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/b938f2b4f9d7455d9179bcf2e7acc8ef" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F789e7a12-6103-4ec6-aef1-db202c80f89e%2FUntitled.png?width=278&amp;table=block&amp;id=b938f2b4-f9d7-455d-9179-bcf2e7acc8ef"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F789e7a12-6103-4ec6-aef1-db202c80f89e%2FUntitled.png?width=278&amp;table=block&amp;id=b938f2b4-f9d7-455d-9179-bcf2e7acc8ef" style="width:278px"/></a><figcaption><span class="SemanticStringArray"><span class="SemanticString">一枝独秀</span></span></figcaption></figure></div><div id="https://www.notion.so/19083e4dff7646d19786488926346878" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <footer class="Footer">
-    <div>&copy; {{siteMeta.title}} 2021</div>
-    <div>&centerdot;</div>
-    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-        rel="noopener noreferrer">Notablog</a>.
-    </div>
-  </footer>
+  <div>&copy; 布鲁斯🐟的奇思乱想 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
 </body>
 
 </html>

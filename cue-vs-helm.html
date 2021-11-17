@@ -2,44 +2,39 @@
 <html lang="en">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-WV23EXEF9X');
-  </script>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
-  <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{post.title}}">
-  {{if(options.post.description.length > 0)}}
-  <meta name="description" content="{{post.descriptionPlain}}">
-  <meta property="og:description" content="{{post.descriptionPlain}}">
-  {{/if}}
-  <meta property="og:type" content="blog">
-  <title>{{post.title}}</title>
-  <!-- Favicon -->
-  {{if(options.siteMeta.icon)}}
-  <link rel="shortcut icon" href="{{siteMeta.icon}}">
-  {{/if}}
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
-  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
-  <link rel="stylesheet" type="text/css" href="css/notablog.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
-  <style>
-    :root {
-      font-size: 18px;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
 
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>再见 Helm，你好 CUE&nbsp;|&nbsp;布鲁斯🐟的奇思乱想</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="再见 Helm，你好 CUE">
+  
+    <meta name="description" content="长江后浪推前浪">
+    <meta property="og:description" content="长江后浪推前浪">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;👋&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
     .DateTagBar {
       margin-top: 1.0rem;
     }
@@ -48,62 +43,274 @@
 
 <body>
   <nav class="Navbar">
-    <a href="index.html">
-      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
-    </a>
-    <a href="tag/tech.html">
-      <div class="Navbar__Btn">♯<span>TECH</span></div>
-    </a>
-    {{each(options.siteMeta.pages)}}
-    {{if(@this.publish && @this.inMenu)}}
-    <span class="Navbar__Delim">&centerdot;</span>
-    <a href="{{@this.url}}">
-      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
-    </a>
-    {{/if}}
-    {{/each}}
-  </nav>
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="0316b907039e49eb86c087e28a94f00b.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🧱&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>Projects</span>
+        </div>
+      </a>
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🤙&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
   <header class="Header">
-    {{if(options.post.cover)}}
-    <div class="Header__Cover">
-      <img src="{{post.cover}}">
+    
+      <div class="Header__Cover">
+        <img src="https://images.unsplash.com/photo-1558234336-b5379131bf43?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb">
+      </div>
+    
+    <div class="Header__Spacer ">
     </div>
-    {{/if}}
-    <div class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
-    </div>
-    {{if(options.post.icon)}}
-    <div class="Header__Icon">{{post.iconHTML}}</div>
-    {{/if}}
-    <h1 class="Header__Title">{{post.title}}</h1>
-    {{if(options.post.date || options.post.tags.length)}}
-    <div class="DateTagBar">
-      {{if(options.post.date)}}
-      <span class="DateTagBar__Item DateTagBar__Date">Posted on {{post.dateString}}</span>
-      {{/if}}
-      {{each(options.post.tags)}}
-      <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
-        <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
-      </span>
-      {{/each}}
-    </div>
-    {{/if}}
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;👋&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">再见 Helm，你好 CUE</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Tue, Jun 22, 2021</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+            <a href="tag/k8s.html">k8s</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--blue">
+            <a href="tag/helm.html">helm</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--yellow">
+            <a href="tag/cue.html">cue</a>
+          </span>
+        
+      </div>
+    
   </header>
-  {{post.contentHTML}}
+  <article id="https://www.notion.so/aaa3fed931f34bc4a8838d8b536a5eb6" class="PageRoot"><h2 id="https://www.notion.so/530d4744fd47455fbc9d46b39cd540c9" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/530d4744fd47455fbc9d46b39cd540c9"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">什么是 CUE </span></span></h2><blockquote id="https://www.notion.so/d56d76bf75df4f22a1a4e804ce22a7d5" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">CUE 是一种开源数据验证语言和推理引擎，其根源在于逻辑编程</span></span></blockquote><div id="https://www.notion.so/9c12f9fe1cdd4b9398cce8eb0eaabd1e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">说实话，我一开始也没看懂这句描述。我们先来看个小例子：</span></span></p></div><div id="https://www.notion.so/8ce28c23533e444facaf4ba144c485be" class="ColumnList"><div id="https://www.notion.so/b2383f00ec0747359719a9856096a94d" class="Column" style="width:calc((100% - var(--column-spacing) * 2) * 0.33333333333333337)"><div id="https://www.notion.so/85e072f5ae8e4b08b8b241761d4e4b84" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Data</span></span></p></div></div><div id="https://www.notion.so/e22194d596d14f32812bdf0734c40a94" class="Column" style="width:calc((100% - var(--column-spacing) * 2) * 0.33333333333333337)"><div id="https://www.notion.so/13c353f7718b4838b3128c628dcc6405" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Schema</span></span></p></div></div><div id="https://www.notion.so/bef9fdeb91244236a8e4f087b9525f71" class="Column" style="width:calc((100% - var(--column-spacing) * 2) * 0.3333333333333333)"><div id="https://www.notion.so/09668f900a374d459be52f1b01400447" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">CUE</span></span></p></div></div></div><div id="https://www.notion.so/23713900d17248eebfc8d054bcb6e2bb" class="ColumnList"><div id="https://www.notion.so/dea739f5bbe147749193fa5e90ab021a" class="Column" style="width:calc((100% - var(--column-spacing) * 2) * 0.33333333333333337)"><pre id="https://www.notion.so/2ba55c0cc2154d0f9f02363cd0c36da1" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>moscow<span class="token operator">:</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span>    <span class="token string">"Moscow"</span>
+  pop<span class="token operator">:</span>     <span class="token number">11</span>.92M
+  capital<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span></span></span></span></code></pre></div><div id="https://www.notion.so/fa475a43a1be487386276697b9b65922" class="Column" style="width:calc((100% - var(--column-spacing) * 2) * 0.33333333333333337)"><pre id="https://www.notion.so/bc3cf328c48f4e36b01308c3cd7e1012" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>municipality<span class="token operator">:</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span>    string
+  pop<span class="token operator">:</span>     int
+  capital<span class="token operator">:</span> bool
+<span class="token punctuation">}</span></span></span></span></code></pre></div><div id="https://www.notion.so/916202586773419c911ab4c4748ef6da" class="Column" style="width:calc((100% - var(--column-spacing) * 2) * 0.3333333333333333)"><pre id="https://www.notion.so/52eb1cb306014050b51d69397e081bd4" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>largeCapital<span class="token operator">:</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span>    string
+  pop<span class="token operator">:</span>     >5M
+  capital<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span></span></span></span></code></pre></div></div><div id="https://www.notion.so/be16b9c3b08e44b6bc16b217befd2e98" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在定义 JSON 数据时，我们通常会将 Data 和 Schema 分开处理。而 CUE 则将二者结合在一起，既可以指定数据字段类型，也可以直接填写具体值，也就是 CUE 并不会特意地区分 “类型” 和 “值”， </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">string</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">&quot;Moscow&quot;</code></span><span class="SemanticString"> 都会被当作值 ，但是二者之间有包含的先后顺序，在这里 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">&quot;Moscow&quot;</code></span><span class="SemanticString"> 可以背归纳于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">string</code></span><span class="SemanticString"> 的一种，那么 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">string</code></span><span class="SemanticString"> 在格(lattice)中会优先于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">&quot;Moscow&quot;</code></span><span class="SemanticString"> 。</span></span></p></div><div id="https://www.notion.so/6e04e008bd324a78907f5eb751a9ffd3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">更多关于 CUE 的介绍，可以通过 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://cuelang.org/docs/">官方文档</a></span><span class="SemanticString"> 和 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/cuelang/cue/blob/master/doc/ref/spec.md">定义</a></span><span class="SemanticString"> 了解过多，这里就不展开了。</span></span></p></div><h2 id="https://www.notion.so/31283b876901434b92f5f402045fb758" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/31283b876901434b92f5f402045fb758"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">使用 CUE 做模版渲染</span></span></h2><div id="https://www.notion.so/dd05f4282e86400a8386f7894b5b7fe5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">CUE 有</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://cuelang.org/docs/usecases/">很多很酷的使用场景</a></span><span class="SemanticString">，而先让我们关注其中的配置文件渲染能力。</span></span></p></div><div id="https://www.notion.so/0a53e47261a54b1285ad18a8da7b1d5e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/15d2229093d34297b9f5e206fb8b8a82" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们在这里借用 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">KubeVela</code></span><span class="SemanticString"> </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://kubevela.io/docs/platform-engineers/cue/trait#using-cue-as-trait-schematic">文档中的例子</a></span></span></p></div><pre id="https://www.notion.so/b06368a1e7164d34946274a0d8337f6c" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token key atrule">template</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+  parameter: {
+      domain: string
+      http: [string]: int
+  }</span>
 
-  <div>
-    <!-- utterances - Github issue comment -->
-    <script src="https://utteranc.es/client.js" repo="IMBlues/IMBlues.github.io" issue-term="pathname"
-      label="blog-comment" theme="github-light" crossorigin="anonymous" async>
-      </script>
-  </div>
+  // trait template can have multiple outputs in one trait
+  <span class="token key atrule">outputs</span><span class="token punctuation">:</span> <span class="token key atrule">service</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> <span class="token string">"v1"</span>
+      <span class="token key atrule">kind</span><span class="token punctuation">:</span>       <span class="token string">"Service"</span>
+      <span class="token key atrule">spec</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+              <span class="token key atrule">app</span><span class="token punctuation">:</span> context.name
+          <span class="token key atrule">ports</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              for k<span class="token punctuation">,</span> v in parameter.http <span class="token punctuation">{</span>
+                  <span class="token key atrule">port</span><span class="token punctuation">:</span>       v
+                  <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> v
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 
+  <span class="token key atrule">outputs</span><span class="token punctuation">:</span> <span class="token key atrule">ingress</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> <span class="token string">"networking.k8s.io/v1beta1"</span>
+      <span class="token key atrule">kind</span><span class="token punctuation">:</span>       <span class="token string">"Ingress"</span>
+      <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+          <span class="token key atrule">name</span><span class="token punctuation">:</span> context.name
+      <span class="token key atrule">spec</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token key atrule">rules</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+              <span class="token key atrule">host</span><span class="token punctuation">:</span> parameter.domain
+              <span class="token key atrule">http</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                  <span class="token key atrule">paths</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                      for k<span class="token punctuation">,</span> v in parameter.http <span class="token punctuation">{</span>
+                          <span class="token key atrule">path</span><span class="token punctuation">:</span> k
+                          <span class="token key atrule">backend</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                              <span class="token key atrule">serviceName</span><span class="token punctuation">:</span> context.name
+                              <span class="token key atrule">servicePort</span><span class="token punctuation">:</span> v
+                          <span class="token punctuation">}</span>
+                      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">]</span>
+              <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></span></span></span></code></pre><div id="https://www.notion.so/b15acb98f8c4470e8e06d6b660c6bd8e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">可以看到，只需要传入 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">parameter</code></span><span class="SemanticString"> ，就可以得到包含 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Service</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Ingress</code></span><span class="SemanticString"> 的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">output</code></span><span class="SemanticString"> 。</span></span></p></div><div id="https://www.notion.so/0b1ec4c7a96042148719887d5af0ce16" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这样的写法立刻让我们想到了一个类似的工具—— </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/helm/helm">Helm</a></span><span class="SemanticString">，作为较早的 CNCF 毕业项目，Helm 已经慢慢演进成在 k8s 配置定义领域的事实意义上的工业标准。那么相较于 Helm，用 CUE 来写配置文件渲染，又有什么异同呢？</span></span></p></div><h2 id="https://www.notion.so/1eaadb28943d48608932f17b38513071" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/1eaadb28943d48608932f17b38513071"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">CUE vs Helm</span></span></h2><div id="https://www.notion.so/91390c7ec90f4de1bfc495bddda1f66f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">最直观的感受就是，在模版编写上 CUE 比 Helm 流畅太多了。主要的原因二者在最初的设计思路差异，Helm </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://helm.sh/docs/chart_template_guide/functions_and_pipelines/">借助的是 Go 和 Spring 的</a></span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://helm.sh/docs/chart_template_guide/functions_and_pipelines/"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">纯文本渲染能力</strong></a></span><span class="SemanticString">，而对于 CUE，JSON 才是一等公民。所以在 K8S 这类 yaml（JSON 超集） 文件渲染上，CUE（也是 JSON 超集） 拥有天然的优势。</span></span></p></div><blockquote id="https://www.notion.so/ae2750903d4247bcbf7b77879db39e16" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">Talk is cheap， show me the code.</span></span></blockquote><div id="https://www.notion.so/12e76b7ddb904339b008fe1a4670a9aa" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们一起来看几个常用的场景。</span></span></p></div><h3 id="https://www.notion.so/5c4fcb16925643d799ad4a5661557837" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/5c4fcb16925643d799ad4a5661557837"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Named Templates</span></span></h3><div id="https://www.notion.so/e945e8b74f064555ba44d7c73f2d92bb" class="ColumnList"><div id="https://www.notion.so/c311d74d3abe4f52819cedc42b996294" class="Column" style="width:calc((100% - var(--column-spacing) * 1) * 0.5)"><div id="https://www.notion.so/a9ec36fdd91a4206b4e68dfa70edc4ea" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">Helm</strong></span></span></p></div></div><div id="https://www.notion.so/a6892062652a400c9841818caef76417" class="Column" style="width:calc((100% - var(--column-spacing) * 1) * 0.5)"><div id="https://www.notion.so/f1872966222b440897b0d4ef9f2a4dee" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">CUE</strong></span></span></p></div></div></div><div id="https://www.notion.so/67a42f7018b846fda60a62acedc5a497" class="ColumnList"><div id="https://www.notion.so/3a87c78d33b64ea3a3cbcd34ddad52e7" class="Column" style="width:calc((100% - var(--column-spacing) * 1) * 0.5)"><pre id="https://www.notion.so/f52031da3ed24e6e9888ab91b29e1cee" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># values.yaml</span>
+<span class="token key atrule">app_name</span><span class="token punctuation">:</span> <span class="token string">"example_code"</span>
+<span class="token key atrule">other_attr1</span><span class="token punctuation">:</span> <span class="token string">"foo"</span>
+<span class="token key atrule">other_attr2</span><span class="token punctuation">:</span> <span class="token string">"bar"</span>
+
+<span class="token comment"># labels.tpl</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> define "foo.labels" <span class="token punctuation">-</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token key atrule">label1</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.app_name <span class="token punctuation">|</span> required "app_name is required" <span class="token punctuation">}</span><span class="token punctuation">}</span> 
+<span class="token key atrule">label2</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.other_attr2 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> include "foo.selectorLabels" . <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> end <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> define "foo.selectorLabels" <span class="token punctuation">-</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token key atrule">label3</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> printf "%s<span class="token punctuation">-</span>%s" .Values.app_name .Values.other_attr1 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> end <span class="token punctuation">}</span><span class="token punctuation">}</span></span></span></span></code></pre></div><div id="https://www.notion.so/c182761ba46a4af89f46316c924ed78e" class="Column" style="width:calc((100% - var(--column-spacing) * 1) * 0.49999999999999994)"><pre id="https://www.notion.so/cf8b74ed6562441dbbc4883d796909e7" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># labels.cue</span>
+<span class="token key atrule">app_name</span><span class="token punctuation">:</span> <span class="token important">*"example_code"</span> ｜ string
+<span class="token key atrule">other_attr1</span><span class="token punctuation">:</span> <span class="token string">"foo"</span>
+<span class="token key atrule">other_attr2</span><span class="token punctuation">:</span> <span class="token string">"bar"</span>
+
+<span class="token key atrule">selector_labels</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token key atrule">label3</span><span class="token punctuation">:</span> <span class="token string">"\( app_name )-\( other_attr2 )"</span>
+<span class="token punctuation">}</span>
+
+<span class="token key atrule">labels</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token key atrule">label1</span><span class="token punctuation">:</span> app_name
+  <span class="token key atrule">label2</span><span class="token punctuation">:</span> other_attr2
+	selector_labels
+<span class="token punctuation">}</span></span></span></span></code></pre></div></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/98cf5f1ae8da4024af81c102b4c03cff" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">Helm 可以在 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">.tpl</code></span><span class="SemanticString"> 文件中定义可复用的模版，并支持其他模版引用它，同时，也只有定义了的模版才能被复用，在复杂的 Chart 项目里你</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/bitnami/charts/tree/master/bitnami/common/templates">需要额外定义非常多的基础模版</a></span><span class="SemanticString">。</span></span></li><li id="https://www.notion.so/d94d9de588274db6aefd9eb4273f1e8a" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">相对于 Helm 繁琐的写法， 在 CUE 中所有内容均为 JSON 对象，不需要额外的语法去指定模版，任意 JSON 对象都可以互相引用。</span></span></li></ul><h3 id="https://www.notion.so/fb641157e9cc4bbfb1e2fe96a3767258" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/fb641157e9cc4bbfb1e2fe96a3767258"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">空行和缩进</span></span></h3><div id="https://www.notion.so/421bdb41f1e34958a8527a63dd06b803" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">Helm</strong></span></span></p></div><pre id="https://www.notion.so/d42374e0866a4b2fa31870cb2c7cbf50" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> include "foo.deploymentName" . <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> include "foo.labels" . <span class="token punctuation">|</span> nindent 4 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.replicaCount <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> include "foo.selectorLabels" . <span class="token punctuation">|</span> nindent 6 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">strategy</span><span class="token punctuation">:</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> include "foo.updateStrategy" . <span class="token punctuation">|</span> nindent 4 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">revisionHistoryLimit</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.revisionHistoryLimit <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> with .Values.podAnnotations <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+        <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> toYaml . <span class="token punctuation">|</span> nindent 8 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> end <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> include "foo.labels" . <span class="token punctuation">|</span> nindent 8 <span class="token punctuation">}</span><span class="token punctuation">}</span></span></span></span></code></pre><div id="https://www.notion.so/9b29f127a5544bfe976dd91f5f58acb6" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">CUE</strong></span></span></p></div><pre id="https://www.notion.so/d45c5dfbacfb4620b7a2918296786caf" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token key atrule">deployment</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> <span class="token string">"apps/v1"</span>
+	<span class="token key atrule">kind</span><span class="token punctuation">:</span>       <span class="token string">"Deployment"</span>
+	<span class="token key atrule">metadata</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span>   deployment_name
+		<span class="token key atrule">labels</span><span class="token punctuation">:</span> labels
+	<span class="token punctuation">}</span>
+	<span class="token key atrule">spec</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token key atrule">replicas</span><span class="token punctuation">:</span> runtime.replicas
+		<span class="token key atrule">selector</span><span class="token punctuation">:</span> <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span> selector_labels
+		<span class="token key atrule">strategy</span><span class="token punctuation">:</span>             update_strategy
+		<span class="token key atrule">revisionHistoryLimit</span><span class="token punctuation">:</span> revision_history_limit</span></span></span></code></pre><ul class="BulletedListWrapper"><li id="https://www.notion.so/d9053d6cef5b4f92a6cbc7e0c552a16b" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"> Helm 中有大量的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">{{- include }}</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">nindent</code></span><span class="SemanticString"> 等和实际逻辑无关的标记字符，需要在每一次引用的地方计算空格和缩进。</span></span></li><li id="https://www.notion.so/bd793b69edb8417c953034dc63fca430" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">而在 CUE 中无用编码更少，不需要过多的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">{{ * }}</code></span><span class="SemanticString"> 来标记代码块，信息密度更高，而且在缩进和空格方面得到了完全的解放。</span></span></li></ul><h3 id="https://www.notion.so/abbbdbc72f494aa7a3fa2c7cbea8e9ef" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/abbbdbc72f494aa7a3fa2c7cbea8e9ef"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">values.yaml 自引用</span></span></h3><div id="https://www.notion.so/f265500b6aca4d56b95f48e3d6315d32" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在 Helm 中，一个长久以来的头疼问题就是，无法优雅地实现 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">values.yaml</code></span><span class="SemanticString"> 引用问题。</span></span></p></div><div id="https://www.notion.so/a7e2697367eb42abb271b0f5c8bfe381" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们看下面的例子：</span></span></p></div><pre id="https://www.notion.so/570e3c829e7a4cc8b3e81f780dc99762" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token key atrule">rootDomain</span><span class="token punctuation">:</span> <span class="token string">""</span>
+
+<span class="token comment"># 我们期待的是通过引用 rootDomain 拼接，例如："foo.{{ .Values.rootDomain }}"</span>
+<span class="token key atrule">productDomain</span><span class="token punctuation">:</span> <span class="token string">""</span></span></span></span></code></pre><div id="https://www.notion.so/acbbe597a12944bd93632823f209b59d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">通常的情况下，Chart 的使用者需要针对这两个变量分别填写内容，增加了出错的可能。</span></span></p></div><div id="https://www.notion.so/81c99e627d6c4758b2710576cbc1e795" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">虽然我们可以通过定义模版来实现：</span></span></p></div><pre id="https://www.notion.so/11e7f102d49b4be1b312b7d051fae34c" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># values.yaml</span>
+<span class="token key atrule">rootDomain</span><span class="token punctuation">:</span> <span class="token string">""</span>
+<span class="token key atrule">productDomain</span><span class="token punctuation">:</span> <span class="token string">"foo.{{ .Values.rootDomain }}"</span>
+
+<span class="token comment"># helpers.tpl</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> define "foo.productDomain" <span class="token punctuation">-</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> tpl .Values.productDomain $ <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> end <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token comment"># ingress.yaml</span>
+<span class="token punctuation">...</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">rules</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">host</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> include "foo.productDomain" . <span class="token punctuation">|</span> quote <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">...</span></span></span></span></code></pre><div id="https://www.notion.so/aeece2c525b7433b92ad56e53f9411f1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">但在实际使用中，所有引用的地方都需要额外 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">include</code></span><span class="SemanticString"> ，同时定义的维护也非常耗费心力（要时刻保证空行、缩进不出错）。</span></span></p></div><div id="https://www.notion.so/69a94ff2928b40ca84e969becb83bcc6" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">而在 CUE 中，相互引用显得自然而舒服。</span></span></p></div><pre id="https://www.notion.so/806e3786952e4c769993e2e7701fdddd" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>rootDomain<span class="token operator">:</span> string
+productDomain<span class="token operator">:</span> *<span class="token string">"foo.\( rootDomain )"</span> | string</span></span></span></code></pre><h3 id="https://www.notion.so/fcc9c29e41ee4cd780a5ab82ca94e623" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/fcc9c29e41ee4cd780a5ab82ca94e623"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">导入 Kubernetes 包</span></span></h3><div id="https://www.notion.so/c7d80eed0b024894ab8aa99061b98149" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">CUE 的另一大杀器，可以针对原生 Kubernetes 源码生成描述 cue 文件，所有 k8s 资源相关的配置文件，都可以天然地拥有 schema 校验。具体教程可以查看 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://cue.googlesource.com/cue/+/HEAD/doc/tutorial/kubernetes/README.md">Kubernetes tutorial</a></span><span class="SemanticString">。</span></span></p></div><pre id="https://www.notion.so/0c0a1a4661c04fcc897828b4cee471db" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>package templates
+
+import (
+	apps "k8s.io/api/apps/v1"
+)
+
+<span class="token key atrule">deployment</span><span class="token punctuation">:</span> apps.<span class="token comment">#Deployment</span>
+
+<span class="token key atrule">deployment</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> <span class="token string">"apps/v1"</span>
+	<span class="token key atrule">kind</span><span class="token punctuation">:</span>       <span class="token string">"Deployment"</span>
+	<span class="token key atrule">metadata</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token key atrule">name</span><span class="token punctuation">:</span>   deployment_name
+		<span class="token key atrule">labels</span><span class="token punctuation">:</span> _labels
+	<span class="token punctuation">}</span>
+<span class="token punctuation">...</span></span></span></span></code></pre><div id="https://www.notion.so/48b60f2b847148709c1124eee00fdb98" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">类似这个例子中，我们定义的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">deployment</code></span><span class="SemanticString"> 将会通过 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">apps.#Deployment</code></span><span class="SemanticString"> 校验，轻松检测出不合法的字段。理论上，你可以针对多个不同版本的 k8s 资源都生成 cue 文件，并且都作为 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">deployment</code></span><span class="SemanticString"> 的模型定义，这样可以实现资源定义的多版本兼容能力。</span></span></p></div><div id="https://www.notion.so/ecdc814c76644e6b9013e38c1327aa60" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/7baa71f9a28842d29ffd05ac6f740d9f" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/7baa71f9a28842d29ffd05ac6f740d9f"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">说了这么多好处，现在就把所有 Helm Chart 都替换成 CUE？</span></span></h2><div id="https://www.notion.so/dfb02238f0794510b9bc1a5718f0bfb3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">且慢，还没到时候。</span></span></p></div><div id="https://www.notion.so/49b76d496de84f75b597e5bd26955b54" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">因为 Helm 作为 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Package Manager</code></span><span class="SemanticString"> ，除了 Chart 渲染，本身还具备一定的应用管理功能，例如 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Helm install</code></span><span class="SemanticString"> 、 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Helm rollback</code></span><span class="SemanticString"> 等，而 CUE 仅仅是模版。所以在某些我们只使用了 Helm 的模版功能的情况下，可以考虑迁移到 CUE，其他情况，还是用 Helm 吧。</span></span></p></div><h3 id="https://www.notion.so/6348fdc657f343c3a38ef0c75d05233e" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--3"><a class="Anchor" href="#https://www.notion.so/6348fdc657f343c3a38ef0c75d05233e"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">脑洞</span></span></h3><div id="https://www.notion.so/5d04a9c04755420ba08feaa4d8d70fd9" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">做一个开源的 CLI，支持将多个文件聚合为一个应用统一管理：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/bcde39a4f97b45c5b06602c6b5748418" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">类似 Helm 的能力，支持安装、更新、回滚</span></span></li><li id="https://www.notion.so/f454e16d81c949bbb3be3565bbb9f650" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">针对配置，支持裸配置和 CUE 文件</span></span></li></ul><div id="https://www.notion.so/4be2870f12394f04ad224be35dfccdb9" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">好了，先说这么多，我去尝试写一写，下篇文章见 👋 ～</span></span></p></div><div id="https://www.notion.so/e0686767d6954fadb57963c346e7c743" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
   <footer class="Footer">
-    <div>&copy; {{siteMeta.title}} 2021</div>
-    <div>&centerdot;</div>
-    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-        rel="noopener noreferrer">Notablog</a>.
-    </div>
-  </footer>
+  <div>&copy; 布鲁斯🐟的奇思乱想 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
 </body>
 
 </html>
