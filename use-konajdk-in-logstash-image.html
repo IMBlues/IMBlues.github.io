@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+  <title>小记：如何将 Logstash 镜像替换为 KonaJDK&nbsp;|&nbsp;布鲁斯🐟的奇思乱想</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="小记：如何将 Logstash 镜像替换为 KonaJDK">
+  
+    <meta name="description" content="随手记录，简单却防遗忘">
+    <meta property="og:description" content="随手记录，简单却防遗忘">
+  
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🗿&lt;/text&gt;&lt;/svg&gt;"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3a9bcf6a-f4f8-4580-93a6-b21a38a8914b%2F988431636594419_.pic.jpg?table=block&amp;id=78f0b500-97be-4b05-ad6d-630418880655"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+    
+    <h1 class="Header__Title">小记：如何将 Logstash 镜像替换为 KonaJDK</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Tue, Dec 28, 2021</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--blue">
+            <a href="tag/ruby.html">ruby</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--yellow">
+            <a href="tag/note.html">note</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
+            <a href="tag/guide.html">guide</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/konajdk.html">konajdk</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--purple">
+            <a href="tag/logstash.html">logstash</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/df79258bdaf044a0a305daa85b9df638" class="PageRoot"><div id="https://www.notion.so/42ea5095ebbc4acebf7d7cfbdba95655" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/b273e89b2e0243fca53f5cac3ee5a52a" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/b273e89b2e0243fca53f5cac3ee5a52a"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Step 0 预备环境</span></span></h2><div id="https://www.notion.so/5b12032a8dc24bb48ccda3514ad568d1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Rake 是一个由 Ruby 实现的 Make-like 工具，可以用 Ruby 来编排项目任务流程，例如出二进制包、构建镜像等。在 GitHub Logstash 项目的 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/elastic/logstash/blob/main/rakelib/artifacts.rake">rakelib</a></span><span class="SemanticString"> 里找到镜像构建逻辑。</span></span></p></div><div id="https://www.notion.so/da872c652306417299868a1350dcf61a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">构建之前，需要保证构建机包含以下工具：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/da5bd14c9b8f401e9429eebee0dba225" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">Docker</span></span></li><li id="https://www.notion.so/6a7be0ea7e874bd489ac0334d71e1342" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">GNU Make</span></span></li><li id="https://www.notion.so/f517b532614140d092bac2370a241e84" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">Python 3.5+ with Virtualenv</span></span></li><li id="https://www.notion.so/30a8eae78ca84397a11e01f6bdd28b1a" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">JRuby 9.1+ （实际上 Mac 自带 Ruby 也是可行的）</span></span></li></ul><h2 id="https://www.notion.so/fc52829c00434dbfa17e60bc7584ecc6" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/fc52829c00434dbfa17e60bc7584ecc6"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Step 1 精简构建步骤</span></span></h2><div id="https://www.notion.so/821f6842e23b4ed88f1cc67c5c42387c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">构建步骤中，默认会包括 Windows\MacOS 以及 Arm 的构建，如果你并不需要这些平台，可以如下手动修改构建步骤，能够大大加快你的构建速度：</span></span></p></div><pre id="https://www.notion.so/9899ad082cfe4cc8bc1478503a87b52b" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># create_archive_pack(license_details, "x86_64", "linux", "windows", "darwin")</span>
+create_archive_pack<span class="token punctuation">(</span>license_details<span class="token punctuation">,</span> <span class="token string">"x86_64"</span><span class="token punctuation">,</span> <span class="token string">"linux"</span><span class="token punctuation">)</span>
+<span class="token comment"># create_archive_pack(license_details, "arm64", "linux")</span></span></span></span></code></pre><h2 id="https://www.notion.so/61d7e81cee75469e80a4cfe70f325b36" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/61d7e81cee75469e80a4cfe70f325b36"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Step 2 修改 Python 版本</span></span></h2><div id="https://www.notion.so/5867ab8f1de04c618e35e24e919bee0b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">如果你不想为了构建镜像额外下载其他 Python 版本，可以手动修改 Makefile</span></span></p></div><pre id="https://www.notion.so/d7023133a9324d8e8a915194d9584bce" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span># PY_VERSION ?= 3.6.13
+# =&gt;
+PY_VERSION ?= 3.6.7</span></span></span></code></pre><div id="https://www.notion.so/eb307ab7a63c459c9acd99609fa7252f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">理论上保证 Python 版本大于 3.5 即可。</span></span></p></div><div id="https://www.notion.so/9db0dcfcc741414b9fa1f55f25fdcd31" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/9df33cb05bd948748b82c06445e8e987" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/9df33cb05bd948748b82c06445e8e987"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Step 3 指定 JDK 版本</span></span></h2><div id="https://www.notion.so/934b32f36405477c8a6fea26b53e3e87" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">如标题所示，我们的目标是将 Logstash 镜像里的 OpenJDK 替换成 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/Tencent/TencentKona-11">KonaJDK</a></span><span class="SemanticString">。构建时手动指定 JDK 地址即可</span></span></p></div><pre id="https://www.notion.so/11d2a7f97311445fa440b8253ce6049e" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token assign-left variable">JDK_URL</span><span class="token operator">=</span>https://github.com/Tencent/TencentKona-11/releases/download/kona11.0.13-fiber/TencentKona-11.0.13.b1_jdk_fiber_linux-x86_64.tar.gz rake artifact:docker</span></span></span></code></pre><div id="https://www.notion.so/44cd4da1ed00411889f821f36d82ad53" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/2b3afef91d39470388849c216eee614c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">等待构建，大功告成 xD</span></span></p></div><div id="https://www.notion.so/1d995c187f304758b1d9a1bde96068f7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+
+  <!-- utterances - Github issue comment -->
+  <div>
+    <script src="https://utteranc.es/client.js"
+      repo="IMBlues/IMBlues.github.io"
+      issue-term="pathname"
+      label="blog-comment"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <!-- utterances - Github issue comment -->
+
+  <footer class="Footer">
+  <div>&copy; 布鲁斯🐟的奇思乱想 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+</body>
+
+</html>
