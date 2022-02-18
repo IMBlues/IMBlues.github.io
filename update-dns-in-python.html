@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
+<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WV23EXEF9X');
+</script>
+
+  <title>旧代码拾遗：如何在 Python 代码中修改 DNS 解析&nbsp;|&nbsp;布鲁斯🐟的奇思乱想</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="旧代码拾遗：如何在 Python 代码中修改 DNS 解析">
+  
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3a9bcf6a-f4f8-4580-93a6-b21a38a8914b%2F988431636594419_.pic.jpg?table=block&amp;id=78f0b500-97be-4b05-ad6d-630418880655"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+    
+    <h1 class="Header__Title">旧代码拾遗：如何在 Python 代码中修改 DNS 解析</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Fri, Feb 18, 2022</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/python.html">python</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/0fe97326eab846de8a08f16141bd1036" class="PageRoot"><h2 id="https://www.notion.so/99c70ff62bda477db6f263f58e34f68d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/99c70ff62bda477db6f263f58e34f68d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Why</span></span></h2><div id="https://www.notion.so/c6c68a68dd834fbf8aeb0cb746c3ac86" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们访问 K8S 的 ApiServer 服务，由于为了保证安全性，证书中签发的域名仅包括 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">kubernetes</code></span><span class="SemanticString"> 和初始的有限 IP 列表，当 ApiServer 服务的 Master 节点需要被替换时，就无法使用新的节点 IP 访问了。解决的方案就是将 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">kubernetes</code></span><span class="SemanticString"> 域名和新的 IP 临时绑定，骗过证书校验。</span></span></p></div><h2 id="https://www.notion.so/86e76ee1fee94abb8898499ad65c7a28" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/86e76ee1fee94abb8898499ad65c7a28"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">How？</span></span></h2><div id="https://www.notion.so/13d4e7c05d794e9585843bbe92a06929" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">废话不多说，直接看代码</span></span></p></div><pre id="https://www.notion.so/3eadce6925214a83a1550f0cec305e8d" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">import</span> contextlib
+<span class="token keyword">import</span> importlib
+<span class="token keyword">import</span> threading
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Callable<span class="token punctuation">,</span> Dict<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> urllib3<span class="token punctuation">.</span>util <span class="token keyword">import</span> connection
+
+
+<span class="token keyword">class</span> <span class="token class-name">CustomLocalDnsResolver</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>local<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""支持线程级自定义 Dns 记录
+    """</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dns_map<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">dict</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 线程保存各自 dns_map，但是访问入口均为 dns_map</span>
+        self<span class="token punctuation">.</span>dns_map <span class="token operator">=</span> dns_map <span class="token keyword">or</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_patch_create_connection_with_dns</span><span class="token punctuation">(</span>dns_resolver<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Callable<span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""simply get patched create_connection"""</span>
+
+    <span class="token comment"># 保留原方法</span>
+    _orig_create_connection <span class="token operator">=</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>importlib<span class="token punctuation">.</span>import_module<span class="token punctuation">(</span><span class="token string">'urllib3.util.connection'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'create_connection'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">patched_create_connection</span><span class="token punctuation">(</span>address<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""在 urllib3's create_connection 流程前解析 address"""</span>
+        domain<span class="token punctuation">,</span> port <span class="token operator">=</span> address
+        <span class="token comment"># 当 _local_dns.dns_map 为空，对正常流程无影响</span>
+        host <span class="token operator">=</span> dns_resolver<span class="token punctuation">.</span>dns_map<span class="token punctuation">.</span>get<span class="token punctuation">(</span>domain<span class="token punctuation">,</span> domain<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> _orig_create_connection<span class="token punctuation">(</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> patched_create_connection
+
+
+_local_dns <span class="token operator">=</span> CustomLocalDnsResolver<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># patch 全局 create_connection</span>
+connection<span class="token punctuation">.</span>create_connection <span class="token operator">=</span> get_patch_create_connection_with_dns<span class="token punctuation">(</span>_local_dns<span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@contextlib<span class="token punctuation">.</span>contextmanager</span>
+<span class="token keyword">def</span> <span class="token function">update_local_dns_once</span><span class="token punctuation">(</span>dns_map<span class="token punctuation">:</span> Dict<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""一次性修改线程 dns 解析"""</span>
+    _local_dns<span class="token punctuation">.</span>dns_map <span class="token operator">=</span> dns_map
+    <span class="token keyword">yield</span>
+    _local_dns<span class="token punctuation">.</span>dns_map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token comment"># 具体的使用场景</span>
+<span class="token keyword">with</span> update_local_dns_once<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"kubernetes"</span><span class="token punctuation">:</span> <span class="token string">"192.168.1.1"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 可以在该 context 中请求外部系统</span></span></span></span></code></pre><div id="https://www.notion.so/ae09023772b54cd1bea940f95d6aa19f" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/c03566e9f2f743afab3ee34965b805a6" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+
+  <!-- utterances - Github issue comment -->
+  <div>
+    <script src="https://utteranc.es/client.js"
+      repo="IMBlues/IMBlues.github.io"
+      issue-term="pathname"
+      label="blog-comment"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <!-- utterances - Github issue comment -->
+
+  <footer class="Footer">
+  <div>&copy; 布鲁斯🐟的奇思乱想 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+</body>
+
+</html>
