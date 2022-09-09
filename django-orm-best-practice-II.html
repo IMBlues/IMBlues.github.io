@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
+<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WV23EXEF9X');
+</script>
+
+  <title>Django ORM：天使与魔鬼 II&nbsp;|&nbsp;布鲁斯鱼的奇思乱想 💭</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="Django ORM：天使与魔鬼 II">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;👼&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3a9bcf6a-f4f8-4580-93a6-b21a38a8914b%2F988431636594419_.pic.jpg?table=block&amp;id=78f0b500-97be-4b05-ad6d-630418880655"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+      <div class="Header__Cover">
+        <img src="https://www.notion.so/images/page-cover/nasa_fingerprints_of_water_on_the_sand.jpg">
+      </div>
+    
+    <div class="Header__Spacer ">
+    </div>
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;👼&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">Django ORM：天使与魔鬼 II</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Fri, Sep 9, 2022</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/python.html">python</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--gray">
+            <a href="tag/django.html">django</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--brown">
+            <a href="tag/orm.html">orm</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--green">
+            <a href="tag/best-practice.html">best-practice</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/df2f83f3a8af4dc1b9a5bf5ead728813" class="PageRoot"><div id="https://www.notion.so/4a546d3d7c74496e9b1d7d1fb42c535d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">最近重操 CRUD 旧业，又有一些新的发现，故增加一篇 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="django-orm-best-practice.html">Django ORM：天使与魔鬼</a></span><span class="SemanticString"> Part II。</span></span></p></div><h2 id="https://www.notion.so/82db9c2aeb01430195baee7397543088" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/82db9c2aeb01430195baee7397543088"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">利用 batch_size 控制数据库单次提交的大小</span></span></h2><div id="https://www.notion.so/b955dbbad6af4e4bbbf17f57011e519d" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">bulk_create</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">bulk_update</code></span><span class="SemanticString"> 是我们常用的批量创建、更新的方法，但批量提速一时爽，提交过长会直接导致任务失败。</span></span></p></div><div id="https://www.notion.so/e46752e4dc8d4b0f82104152bcaf7bc5" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">之前没有细致查阅文档，想当然 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://github.com/TencentBlueKing/bk-user/blob/cd3d14b72d92de0cf687e9466a797b9fd07e0daf/src/api/bkuser_core/common/db_sync.py#L140">手写了批量提交分片的逻辑</a></span><span class="SemanticString"> ，虽然也完全实现了功能，但终究多了一份需要维护的逻辑，实际上直接用 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.djangoproject.com/zh-hans/4.1/ref/models/querysets/#bulk-create">Django 默认提供的 </a></span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.djangoproject.com/zh-hans/4.1/ref/models/querysets/#bulk-create"><code class="SemanticString__Fragment SemanticString__Fragment--Code">batch_size</code></a></span><span class="SemanticString"> 即可。</span></span></p></div><pre id="https://www.notion.so/3b93cd879b8949c7be5d71ab2141bd68" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">from</span> itertools <span class="token keyword">import</span> islice
+
+batch_size <span class="token operator">=</span> <span class="token number">100</span>
+objs <span class="token operator">=</span> <span class="token punctuation">(</span>Entry<span class="token punctuation">(</span>headline<span class="token operator">=</span><span class="token string">'Test %s'</span> <span class="token operator">%</span> i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    batch <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>islice<span class="token punctuation">(</span>objs<span class="token punctuation">,</span> batch_size<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> batch<span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    Entry<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>bulk_create<span class="token punctuation">(</span>batch<span class="token punctuation">,</span> batch_size<span class="token punctuation">)</span></span></span></span></code></pre><h2 id="https://www.notion.so/c1d8db45a5914bd3aeaf1fd0888cfbaf" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/c1d8db45a5914bd3aeaf1fd0888cfbaf"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">通过 Prefetch 控制预取的查询</span></span></h2><div id="https://www.notion.so/2f295609869e4562862dbe2af09eeb07" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping">N + 1 问题</a></span><span class="SemanticString">是非常常见的查询效率杀手。在 Django 中我们通常会使用 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">selected_related</code></span><span class="SemanticString"> 或</span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">prefetch_related</code></span><span class="SemanticString"> 来预取关联对象，来减少和 DB 之间的交互，但是在使用上也需要有一些注意的地方。</span></span></p></div><div id="https://www.notion.so/bfa09ef62f6e4f979b47cbd47ecc450a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">首先，预取需要精确控制到字段。</span></span></p></div><div id="https://www.notion.so/a7ed80d360ec48b390053dc4545f72db" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">Django 默认的查询方式都是粗放的，例如普通查询不使用 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">values</code></span><span class="SemanticString"> 或者 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">only</code></span><span class="SemanticString"> 时都是 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">select *</code></span><span class="SemanticString"> ，而预取也不例外，看看下面这个例子。</span></span></p></div><pre id="https://www.notion.so/8c41fb090be24c978d1670bff05edd5a" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">class</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Bar</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	foo <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Foo<span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Baz</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">"""A very large table"""</span>
+	foo <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Foo<span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/af3472798e4b4d8db935e670a2bc0082" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们在查询 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Foo</code></span><span class="SemanticString"> 时，会尝试预取关联字段以加速后续数据读取，但如果我们在调用时不加任何参数：</span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Foo.objects.all().prefetch_related()</code></span><span class="SemanticString"> ，</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">默认地 Django 会将所有关联字段都取出来</strong></span><span class="SemanticString">，加入 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Baz</code></span><span class="SemanticString"> 表无比巨大，本来用作性能优化的 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">prefetch_related</code></span><span class="SemanticString"> 就会摇身变成耗时怪兽。</span></span></p></div><div id="https://www.notion.so/994ff684a5bb45358ec9081b81474c2e" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">此外，我们还会遇到级联预取的场景。</span></span></p></div><pre id="https://www.notion.so/4b1e98488e284c1cafd9832a72ad4c7c" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span><span class="token keyword">class</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Bar</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	foo <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Foo<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">"bars"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Baz</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	bar <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Bar<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">"bazs"</span><span class="token punctuation">)</span>
+	large_config <span class="token operator">=</span> models<span class="token punctuation">.</span>JSONField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></span></span></span></code></pre><div id="https://www.notion.so/a7a20e49425648d9a95c62c9e8f17838" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">此时在后续的循环处理中，我们需要通过 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Foo</code></span><span class="SemanticString"> 对象查询到 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Baz</code></span><span class="SemanticString"> 的数据，为了避免 N + 1 我们也会多级预取:</span></span></p></div><pre id="https://www.notion.so/43c1c48af79f485eaf6257421b46ee7a" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>Foo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_related<span class="token punctuation">(</span><span class="token string">"bars"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>prefetch_related<span class="token punctuation">(</span><span class="token string">"bars__bazs"</span><span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/6ed989f8312342e2b14792e216500f48" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">此时二级预取也是默认获取全部字段，倘若 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Baz</code></span><span class="SemanticString"> 表中有一个需要额外耗时序列化的字段，同样会使优化适得其反。这时可以考虑引入 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://docs.djangoproject.com/zh-hans/4.1/ref/models/querysets/#prefetch-objects"><code class="SemanticString__Fragment SemanticString__Fragment--Code">Prefetch</code></a></span><span class="SemanticString"> 对象，细致的选择</span></span></p></div><pre id="https://www.notion.so/80535a8e9f1a4f9e928dd61ea5d16311" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>Foo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_related<span class="token punctuation">(</span><span class="token string">"bars"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span>prefetch_related<span class="token punctuation">(</span>
+	Prefetch<span class="token punctuation">(</span><span class="token string">"bars__bazs"</span><span class="token punctuation">,</span> queryset<span class="token operator">=</span>Baz<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>defer<span class="token punctuation">(</span><span class="token string">"large_config"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></span></span></span></code></pre><div id="https://www.notion.so/ccd36cfe5f1348f5b9e31ca19eedeb10" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/658dd384a7a9499e84984b784abf2102" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">是不是觉得 ORM 查询本身也挺繁杂的？用 SQL 有时会更直接清晰地多。所以也会有一些完全</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://dev.solita.fi/2021/06/01/why-avoid-an-orm.html">不使用 ORM 的观点</a></span><span class="SemanticString">。在我看来，ORM 能让 90% 的查询都变得结构化更清晰、更易维护、甚至更安全，但剩下的 10% 也许会耗费更多的精力，所以何时使用 ORM 是根据具体项目场景来定的，不能因噎废食。</span></span></p></div><h2 id="https://www.notion.so/b8220e76aee241248794f0dde87fd8e3" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/b8220e76aee241248794f0dde87fd8e3"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">小广告</span></span></h2><div id="https://www.notion.so/95186dc7ed694d41a52a0af8aed1c8a3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">是不是觉得 Part II 内容有点少？没关系，更多的内容我都放在了这里。</span></span></p></div><div id="https://www.notion.so/1b20568294cc493692016c2f5fae5683" class="Bookmark"><a href="https://github.com/TencentBlueKing/python-best-practices"><h5 class="Bookmark__Title">GitHub - TencentBlueKing/python-best-practices</h5><p class="Bookmark__Desc">Contribute to TencentBlueKing/python-best-practices development by creating an account on GitHub.</p><p class="Bookmark__Link">https://github.com/TencentBlueKing/python-best-practices</p></a></div><div id="https://www.notion.so/095acb088c8a44bba82fe37824e7be3b" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我和团队小伙伴整理了很多 Python\Django\DRF 的最佳实践经验，项目会持续更新，欢迎一起探讨维护，希望每一个 CRUD 男孩/女孩都能少踩坑。</span></span></p></div></article>
+
+  <!-- utterances - Github issue comment -->
+  <div>
+    <script src="https://utteranc.es/client.js"
+      repo="IMBlues/IMBlues.github.io"
+      issue-term="pathname"
+      label="blog-comment"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <!-- utterances - Github issue comment -->
+
+  <footer class="Footer">
+  <div>&copy; 布鲁斯鱼的奇思乱想 💭 2019-2021</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+</body>
+
+</html>
