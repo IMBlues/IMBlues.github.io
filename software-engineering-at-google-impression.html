@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
+<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WV23EXEF9X');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+
+  <title>《Google 软件工程》 读后感 Part I&nbsp;|&nbsp;布鲁斯鱼的奇思乱想 💭</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="《Google 软件工程》 读后感 Part I">
+  
+  
+    <meta property="og:image" content="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe38c7bc9-c734-4d33-8ac3-1c00f1ced7c7%2Fsoftware_engineering_at_google.jpeg?table=block&amp;id=ad4f769a-255d-49ff-b941-14d86af0f4a6">
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3a9bcf6a-f4f8-4580-93a6-b21a38a8914b%2F988431636594419_.pic.jpg?table=block&amp;id=78f0b500-97be-4b05-ad6d-630418880655"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+      <div class="Header__Cover">
+        <img src="https://images.unsplash.com/photo-1659839191681-3124cf1c3c6e?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy">
+      </div>
+    
+    <div class="Header__Spacer ">
+    </div>
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe38c7bc9-c734-4d33-8ac3-1c00f1ced7c7%2Fsoftware_engineering_at_google.jpeg?table=block&amp;id=ad4f769a-255d-49ff-b941-14d86af0f4a6"></span>
+      </div>
+    
+    <h1 class="Header__Title">《Google 软件工程》 读后感 Part I</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Tue, Sep 20, 2022</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
+            <a href="tag/reading.html">reading</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--orange">
+            <a href="tag/software-engineering.html">software-engineering</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/google.html">google</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/ad4f769a255d49ffb94114d86af0f4a6" class="PageRoot"><div id="https://www.notion.so/777ce9d5f53949a6a8393963e91f3932" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">总的来说，这本书值得所有软件开发从业者阅读。一些观点可能不至于奉之圭臬，但也可以提供另一种处理问题的视角。</span></span></p></div><div id="https://www.notion.so/6d844a0baf7c498faf60a388db9af5f3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">它将很多</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">存在于意识而尚未落成语言的软件工程共识</strong></span><span class="SemanticString">，用简单易读的方式总结表达了出来，相信对于大多数软件工程师都会有帮助。</span></span></p></div><div id="https://www.notion.so/3ff865cb50f84ea1b841626f27e6ffd1" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">分享书中一些有趣的说法，如果你也觉得有意思，那么就买来读一读吧。</span></span></p></div><div id="https://www.notion.so/66de43b78d10449984a29b7616b7e281" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">（如果你的「洋文🤓」够好，也可以直接</span><span class="SemanticString"><mark class="SemanticString__Fragment SemanticString__Fragment--HighlightedColor SemanticString__Fragment--ColorGreen"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">免费</strong></mark></span><span class="SemanticString">阅读 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://abseil.io/resources/swe-book/html/toc.html">英文原版</a></span><span class="SemanticString">）</span></span></p></div><div id="https://www.notion.so/09a459e871b943c085747dd6147f83ce" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><h2 id="https://www.notion.so/108de72aa03b4676bcdc78b128dfcb54" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/108de72aa03b4676bcdc78b128dfcb54"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">海勒姆定律（Hyrum’s Law）</span></span></h2><blockquote id="https://www.notion.so/6efc210c8d8b409999d4773096724a77" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">当一个 API 有足够多的用户时，在约定中你所承诺的已不重要：所有在你系统里面被观察到的行为都会被一些用户所依赖。</span></span></blockquote><div id="https://www.notion.so/63b3cdac850e4ca3996cc7c0f13d33f3" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我从中读出来的关键点：拒绝侥幸心理。当用户体量足够大时，任何改动都需要通过测试来收尾，侥幸心理自认为某些逻辑人畜无害，一两次可能可以省事儿，但总有一天会翻船。</span></span></p></div><h2 id="https://www.notion.so/a33cd866bd9b44e18ab9d4865ca42e11" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/a33cd866bd9b44e18ab9d4865ca42e11"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">巴士系数（</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">Truck Factor</strong></span><span class="SemanticString">）</span></span></h2><blockquote id="https://www.notion.so/2f22cd1ab33949dd8d3511f31e1f127a" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">指多少关键开发者被巴士撞了会让项目停摆。</span></span></blockquote><div id="https://www.notion.so/a80a7df0cf464b5fb9e97948fc634e5a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">开发者被巴士撞了虽然有点残忍，但确实是一个很形象的表述——当成员突然不参与工作或失去通讯能力。可能在很多团队中，开发者的</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">突然离职</strong></span><span class="SemanticString">是更贴近这种场景的情况。想要尽量避免因为关键人物的离开而导致项目停摆，书中也列举了基础的预防措施：备份或者结对编程，“每一个人在工作时都需要第二双眼睛的监督”，最重要的是 “拒绝隐藏”。</span></span></p></div><div id="https://www.notion.so/e93cf1c91371441aab21b30b0a6a1e9c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">就我个人的经验而言，在项目开发过程中保持良好的文档记录习惯是一种“美德”，在一些更有追求的团队，更应该是“义务”。良好的文档可以一定程度上保持当“巴士”袭来时，团队能够依靠文档维持相当程度的稳定。</span></span></p></div><div id="https://www.notion.so/0b10dc9b8a7c4b5fae6f1abe1b23b924" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">当然以上都是从 </span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">“团队最优” </strong></span><span class="SemanticString">的角度来说，并不是所有公司都有 Google 的优秀风气，我还在别的团队听过”教会徒弟，饿死师傅“的说法。</span></span></p></div><div id="https://www.notion.so/37a21d8d010246b7a59351b1b1446ad7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这其中孰对孰错，是分享还是私藏，很难在这篇读后感中用几百字讨论清楚。</span></span></p></div><div id="https://www.notion.so/26087d49951e4713919cbb50ef2b3569" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">我们需要保持清醒：互联网从业有它的特殊性——知识获取门槛极低，任何领域都可以通过网络资源轻松入门，但同时也有其他行业相似的普遍性——在资本逐利的背景下，行业失去高增长，更低成本的人力总是会更有竞争力。</span></span></p></div><h2 id="https://www.notion.so/5dd65e654a924222bc81b0dc3bcd423b" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/5dd65e654a924222bc81b0dc3bcd423b"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">左移思想（Left Shift）</span></span></h2><blockquote id="https://www.notion.so/7aa725d4796f4a47992aef55807971ba" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">在开发人员工作流的早期发现问题通常会降低成本。</span></span></blockquote><div id="https://www.notion.so/d0d693528f97457db98feafe72750e86" class="Image Image--Normal"><figure><a href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F33295efc-1f2c-441e-8829-fb516edd724c%2FUntitled.png?width=432&amp;table=block&amp;id=d0d69352-8f97-457d-b98f-eafe72750e86"><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F33295efc-1f2c-441e-8829-fb516edd724c%2FUntitled.png?width=432&amp;table=block&amp;id=d0d69352-8f97-457d-b98f-eafe72750e86" style="width:432px"/></a><figcaption><span class="SemanticStringArray"></span></figcaption></figure></div><div id="https://www.notion.so/3689ec9610704141a1f84ee912bb1a58" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">配合此图，还是非常容易理解的。从开发人员的角度来看，可能存在的问题在越前端解决付出的成本肯定是越小的。举个小例子，陶文在 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://zhuanlan.zhihu.com/p/357411780">《不要以 DRY 之名，发明低代码 DSL 去残害你的同事》</a></span><span class="SemanticString">提到过，缺乏与上游（比如产品、策划）的沟通，只是在开发侧 “一厢情愿” 的抽象可能是一个误区：“先要把需求的源头给按住了。而不是在需求的下游，用可复用抽象代码来兜底”。</span></span></p></div><div id="https://www.notion.so/b5f3a8f6c9de4f33840cd34ca5d44edd" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">类似地，在敏捷开发和 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://devops.com/devops-shift-left-avoid-failure/">DevOps 开发理论中也提到过</a></span><span class="SemanticString"> ，同时还有一个 “</span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://devops.com/shift-right-testing-the-emergence-of-testops/">测试右移</a></span><span class="SemanticString">” 的概念，在测试或者是性能检查时，尽量从贴近用户端出发来保证整个产品流程的质量。</span></span></p></div><h2 id="https://www.notion.so/c34f0c52ad134cfaa3204f1c54b8c39c" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/c34f0c52ad134cfaa3204f1c54b8c39c"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">经理人炎症（Manageritis）</span></span></h2><blockquote id="https://www.notion.so/a4f9f04d0ebb43f5a0e223abc094d808" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">对于处于进步边缘的有抱负的或者那些刚刚晋升的领导者，存在一种高度危险的自我炎症，称为“管理炎”。</span></span></blockquote><div id="https://www.notion.so/21c823d1fa524fd1b1db7576139c7698" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">更简单说法是 “刻意管理”，这种症状多数出现在从个人贡献者 → 管理者身份转变期。很大的原因是，作为技术开发者，我们已经很习惯于在专业技能上投资，并有着合适的回报预期：比如定期在某个领域深入学习，你就能立马获得该领域的技能提升。但是转变到“经理”时，这个回报周期变得不一样了（通常会更长），带领团队向上提升，个体的技能成长反而不容易被感知，会导致做出更高频次的“投资”动作，更加”努力管理”，更容易显得刻意。</span></span></p></div><div id="https://www.notion.so/859aeb3fc73c4a79a81aa9cadcf7d366" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">还有一个方面的原因，从个人贡献者到管理者后，将会面临很多抉择的场景：</span><span class="SemanticString"><em class="SemanticString__Fragment SemanticString__Fragment--Italic">自己动手，快速解决问题 </em></span><span class="SemanticString">vs </span><span class="SemanticString"><em class="SemanticString__Fragment SemanticString__Fragment--Italic">交给他人，更慢更困难地解决问题</em></span><span class="SemanticString">，及时从更长尺度上来看，后者收益会更高，但在这个抉择面前，没有经验的管理者还是会显得非常犹豫。</span></span></p></div><h2 id="https://www.notion.so/c69880a616d044889677adf1eccfbe29" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/c69880a616d044889677adf1eccfbe29"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">碧昂丝规则（Beyoncé Rule）</span></span></h2><blockquote id="https://www.notion.so/086bafa4e6a144b1992de208a2c15184" class="ColorfulBlock ColorfulBlock--ColorDefault Quote"><span class="SemanticStringArray"><span class="SemanticString">“如果你喜欢它，你就应该测试它”。</span></span></blockquote><div id="https://www.notion.so/c3d5817bd56a400d9d2e7f26c6d08596" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">原型是：&quot;If you liked it then you shoulda put a ring on it”，来自于碧昂斯 </span><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://www.youtube.com/watch?v=4m1EFMoRFvY">Single Lady(Put a Ring on It)</a></span><span class="SemanticString"> 歌词（我感觉关联性不大，我猜是碧昂斯粉丝的私货 🤣）。</span></span></p></div><div id="https://www.notion.so/aa238f0f40aa440b870fda8858ab633a" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">意思是“所有不想被破坏的东西”都应该被测试。当你的项目依赖于某些外部系统时，如果想确保一些特性能够符合预期，那么唯一的办法就是在自己的项目编写测试。</span></span></p></div><div id="https://www.notion.so/7429cc36548b47c98383b373042bc8f2" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这一点容易被泛化到外部系统的所有特性，我的理解是需要妥善处理依赖的外部系统</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">常见的重点场景</strong></span><span class="SemanticString">出现异常的情况，而不是全部，也不应该关注全部。</span></span></p></div><div id="https://www.notion.so/e2191a556ac7415eacbe0079e30607e4" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在 Google 内部常有一种说法：“如果一个产品由于基础设施的变更出现中断或其它问题，但是在我们的持续集成(CI)系统中的自动化测试用例并没有发现这个问题，那么就不应该由负责基础设施的团队承担责任。”</span></span></p></div><div id="https://www.notion.so/d05c5cca1a3a4538af76931de52d5759" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">在我们日常的工作场景中，大家普遍是没有这个意识的，如果基础设施出问题，无论我们是否有预料，黑锅都可以毫无负担的甩下去，也造成基础设施部门普遍承受了过多压力 xD。</span></span></p></div><h2 id="https://www.notion.so/f285056deaf3485f8f9019e98a75d32d" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/f285056deaf3485f8f9019e98a75d32d"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">Fin</span></span></h2><div id="https://www.notion.so/b19520c25f304501a0c4d67d772082c9" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">书中还有一些更大值得讨论的话题，以后或许有机会可以结合自己的项目经历写出来聊聊</span><span class="SemanticString"><em class="SemanticString__Fragment SemanticString__Fragment--Italic"><del class="SemanticString__Fragment SemanticString__Fragment--Strike">（典型的挖坑不埋）</del></em></span><span class="SemanticString">。</span></span></p></div><div id="https://www.notion.so/a0f745bfb2d34cd4808aab6c57bf139c" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+
+  <!-- utterances - Github issue comment -->
+  <div>
+    <script src="https://utteranc.es/client.js"
+      repo="IMBlues/IMBlues.github.io"
+      issue-term="pathname"
+      label="blog-comment"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <!-- utterances - Github issue comment -->
+
+  <footer class="Footer">
+  <div>&copy; 布鲁斯鱼的奇思乱想 💭 2019-2022</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+
+</body>
+
+</html>
