@@ -1,1 +1,222 @@
-The template name has zero length, please check the "template" field in your Notion table.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WV23EXEF9X"></script>
+<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WV23EXEF9X');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- Chrome, Firefox OS and Opera Status Bar Color -->
+<meta name="theme-color" content="#FFFFFF">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+<link rel="stylesheet" type="text/css" href="css/notablog.css">
+<!-- Favicon -->
+
+  <link rel="shortcut icon" href="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01">
+
+<style>
+  :root {
+    font-size: 20px;
+  }
+</style>
+
+  <title>WTF Go: Constants&nbsp;|&nbsp;布鲁斯鱼的奇思乱想 💭</title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="WTF Go: Constants">
+  
+    <meta name="description" content=" WTF Go: 初看反直觉，仔细研究却大有设计">
+    <meta property="og:description" content=" WTF Go: 初看反直觉，仔细研究却大有设计">
+  
+  
+    <meta property="og:image" content="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🤔&lt;/text&gt;&lt;/svg&gt;">
+  
+  <style>
+    .DateTagBar {
+      margin-top: 1.0rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="Navbar">
+  <a href="index.html">
+    <div class="Navbar__Btn">
+      
+        <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66ae2268-69fb-4a91-a4a8-fea3ba4543a5%2Fbluesyu.png?table=collection&amp;id=12c44699-617b-45ed-a019-c3b075e0ae01"></span>&nbsp;
+      
+      <span>Home</span>
+    </div>
+  </a>
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <span class="Navbar__Delim">&centerdot;</span>
+      <a href="about.html">
+        <div class="Navbar__Btn">
+          
+            <span><img class="inline-img-icon" src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3a9bcf6a-f4f8-4580-93a6-b21a38a8914b%2F988431636594419_.pic.jpg?table=block&amp;id=78f0b500-97be-4b05-ad6d-630418880655"></span>&nbsp;
+          
+          <span>关于我</span>
+        </div>
+      </a>
+    
+  
+    
+  
+    
+  
+</nav>
+  <header class="Header">
+    
+    <div class="Header__Spacer Header__Spacer--NoCover">
+    </div>
+    
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text text-anchor=%22middle%22 dominant-baseline=%22middle%22 x=%2250%22 y=%2255%22 font-size=%2280%22&gt;🤔&lt;/text&gt;&lt;/svg&gt;"></span>
+      </div>
+    
+    <h1 class="Header__Title">WTF Go: Constants</h1>
+    
+      <div class="DateTagBar">
+        
+          <span class="DateTagBar__Item DateTagBar__Date">Posted on Tue, Oct 11, 2022</span>
+        
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--purple">
+            <a href="tag/golang.html">golang</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--yellow">
+            <a href="tag/note.html">note</a>
+          </span>
+        
+          <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--default">
+            <a href="tag/tech.html">tech</a>
+          </span>
+        
+      </div>
+    
+  </header>
+  <article id="https://www.notion.so/45c5fb708b7e4374927d3300ac13ed90" class="PageRoot"><pre id="https://www.notion.so/a8f642a7b8c044e6a19f9bda12b5c8fe" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>import (
+	&quot;time&quot;
+	&quot;math/rand&quot;
+)
+
+// invalid operation: rand.Intn(10) * 1000 * time.Millisecond (mismatched types int and time.Duration)
+time.Sleep(rand.Intn(10) * 1000 * time.Millisecond) ❌
+
+// 🤔 make sense.
+time.Sleep(time.Duration(rand.Intn(10) * 1000) * time.Millisecond) ✅
+
+// wtf ?!
+time.Sleep(1000 * time.Millisecond) ✅ 
+</span></span></span></code></pre><div id="https://www.notion.so/ca5f65a406be4856849311f6eb391c90" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">看看上面这个简单的例子：</span></span></p></div><ul class="BulletedListWrapper"><li id="https://www.notion.so/0e5263c86dc44eb3bb7cb1333898ad5d" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">第一个错误很容易理解： 整型不能和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">time.Duration</code></span><span class="SemanticString"> 相乘</span></span></li><li id="https://www.notion.so/e4d2f62a3bb0456bba4e021fd16973f9" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">第二个例子修正了这一问题，符合预期</span></span></li><li id="https://www.notion.so/cb984d1064d6482fa339648f13e7d2ae" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString">第三个例子带来了疑问，为什么 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">1000 * time.Millisecond</code></span><span class="SemanticString"> 却没有问题？明明 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">1000</code></span><span class="SemanticString"> 也是个整型？编译器戴了有色眼镜？</span></span></li></ul><div id="https://www.notion.so/87cd59ceeb9b4f69ab1e18bdde4d4a19" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">别慌，仔细看看 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">rand.Intn(10) * 1000</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">1000</code></span><span class="SemanticString"> 的区别在于：前者是变量，类型已经确定了，通不过编译是情理之中；而后者是常量，类型并不是 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">int</code></span><span class="SemanticString"> ，属于 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">untyped constants</code></span><span class="SemanticString"> ，编译器会尝试将它转换成 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">time.Duration</code></span><span class="SemanticString"> 。</span></span></p></div><div id="https://www.notion.so/5799cefb42f34c55bd0118c6c3c94655" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">这就勾起了我的好奇心，那如果我写个一个 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">float</code></span><span class="SemanticString"> 常量会怎样呢？</span></span></p></div><pre id="https://www.notion.so/3ab1b129ac414fad8842c1f46142d123" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>
+// (untyped float constant) truncated to int64
+time.Sleep(1000.1 * time.Millisecond) ❌</span></span></span></code></pre><div id="https://www.notion.so/24f6ed54d5cf4fd4be53d7126c9566a7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">果然是不行的。那么究竟这个无类型常量的类型转换是依照什么规则进行的呢？</span></span></p></div><div id="https://www.notion.so/be4b6098dc6a4e34ae607adc3bc8e3df" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">首先每一种常量的</span><span class="SemanticString"><strong class="SemanticString__Fragment SemanticString__Fragment--Bold">写法</strong></span><span class="SemanticString">都会对应着一种默认类型：</span></span></p></div><pre id="https://www.notion.so/9f98af012edc4a36a2d923637e379839" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>flowchart LR
+
+true\false --&gt; bool
+0 --&gt; int
+0.0 --&gt; float64
+&#x27;x&#x27; --&gt; X[&quot;int32(rune)&quot;]
+0i --&gt; complex128
+C[&quot;&amp;quot;hello&amp;quot;&quot;] --&gt; string
+</span></span></span></code></pre><div id="https://www.notion.so/6bf8d6a0804f4e53b59d187d43aa4415" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">然后，看看 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">time.Duration</code></span><span class="SemanticString"> 的定义：</span></span></p></div><pre id="https://www.notion.so/a2213818bf0d44bb846a1411db4d36bb" class="Code"><code><span class="SemanticStringArray"><span class="SemanticString"><span>type Duration int64
+
+const (
+    Nanosecond  Duration = 1
+    Microsecond          = 1000 * Nanosecond
+    Millisecond          = 1000 * Microsecond
+    Second               = 1000 * Millisecond
+    Minute               = 60 * Second
+    Hour                 = 60 * Minute
+)</span></span></span></code></pre><div id="https://www.notion.so/26d6db9fc8cb4693bcd99f3556a27237" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">也就是 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">1000</code></span><span class="SemanticString"> 的写法默认类型为 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">int</code></span><span class="SemanticString"> ，编译器会尝试做一次类型转换 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">int</code></span><span class="SemanticString"> → </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">time.Duration</code></span><span class="SemanticString"> ，而 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">int64</code></span><span class="SemanticString"> 和 </span><span class="SemanticString"><code class="SemanticString__Fragment SemanticString__Fragment--Code">int</code></span><span class="SemanticString"> 又能做到完全兼容，所以编译通过。</span></span></p></div><div id="https://www.notion.so/5b4654a5c33549ca93d2ebf4a233d8fe" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div><div id="https://www.notion.so/aedf62f46f7c4dde9862790661f034f7" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"><span class="SemanticString">WTF，Go…</span></span></p></div><h2 id="https://www.notion.so/f08fc31950474771875a6c57ba39b3d3" class="ColorfulBlock ColorfulBlock--ColorDefault Heading Heading--2"><a class="Anchor" href="#https://www.notion.so/f08fc31950474771875a6c57ba39b3d3"><svg width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="SemanticStringArray"><span class="SemanticString">参考：</span></span></h2><ul class="BulletedListWrapper"><li id="https://www.notion.so/6721cd44f0404ded921c7d5508e63c14" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://go.dev/blog/constants">https://go.dev/blog/constants</a></span></span></li><li id="https://www.notion.so/aeb9114bbe6a42a6854584030469bf8b" class="BulletedList"><span class="SemanticStringArray"><span class="SemanticString"><a class="SemanticString__Fragment SemanticString__Fragment--Link" href="https://blog.learngoprogramming.com/learn-golang-typed-untyped-constants-70b4df443b61">https://blog.learngoprogramming.com/learn-golang-typed-untyped-constants-70b4df443b61</a></span></span></li></ul><div id="https://www.notion.so/d9c0b00eca124f8fa1b930b95edb34e0" class="ColorfulBlock ColorfulBlock--ColorDefault Text"><p class="Text__Content"><span class="SemanticStringArray"></span></p></div></article>
+
+  <!-- utterances - Github issue comment -->
+  <div>
+    <script src="https://utteranc.es/client.js"
+      repo="IMBlues/IMBlues.github.io"
+      issue-term="pathname"
+      label="blog-comment"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <!-- utterances - Github issue comment -->
+
+  <footer class="Footer">
+  <div>&copy; 布鲁斯鱼的奇思乱想 💭 2019-2022</div>
+  <div>&centerdot;</div>
+  <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+      rel="noopener noreferrer">Notablog</a>.
+  </div>
+</footer>
+
+</body>
+
+</html>
